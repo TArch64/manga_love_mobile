@@ -1,0 +1,7 @@
+query WorkCategories {
+    workCategories {
+        id
+        textEn
+        textUa
+    }
+}

@@ -1,0 +1,12 @@
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          namingSeparator: "_"
+          clients:
+            - graphql
+            - graphql_flutter
+          scalars:
+            UUID:
+              type: String

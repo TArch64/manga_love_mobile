@@ -1,0 +1,100 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @constraint(contains: String, endsWith: String, exclusiveMax: Float, exclusiveMin: Float, format: String, max: Float, maxItems: Int, maxLength: Int, min: Float, minItems: Int, minLength: Int, multipleOf: Float, notContains: String, pattern: String, startsWith: String, uniqueTypeName: String) on ARGUMENT_DEFINITION | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+
+type AuthObject {
+  token: String!
+}
+
+input CreateWorkInput {
+  categories: [UUID!]!
+  illustration: Upload!
+  titleEn: String!
+  titleUa: String!
+}
+
+enum FieldSortOrder {
+  ASC
+  DESC
+}
+
+type IllustrationObject {
+  id: UUID!
+  originalHeight: Int!
+  originalWidth: Int!
+  status: String!
+  url: String!
+}
+
+type Mutation {
+  authSignIn(input: SignInInput!): AuthObject!
+  authSignUp(input: SignUpInput!): AuthObject!
+  workCreate(input: CreateWorkInput!): WorkObject!
+}
+
+type Query {
+  currentUser: UserObject!
+  work(id: UUID!): WorkObject!
+  workCategories: [WorkCategoryObject!]!
+  works(filter: WorkFilterInput!): [WorkObject!]!
+}
+
+input SignInInput {
+  password: String!
+  username: String!
+}
+
+input SignUpInput {
+  avatar: Upload
+  email: String!
+  password: String!
+  username: String!
+}
+
+"""
+The `UUID` scalar type represents UUID values as specified by [RFC 4122](https://tools.ietf.org/html/rfc4122).
+"""
+scalar UUID
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UserObject {
+  avatar: IllustrationObject!
+  email: String!
+  id: UUID!
+  username: String!
+}
+
+type WorkCategoryObject {
+  id: UUID!
+  textEn: String!
+  textUa: String!
+}
+
+input WorkFilterInput {
+  categories: [UUID!]
+  count: Int!
+  offset: Int!
+  sort: WorkFilterSortInput! = {direction: DESC, field: UPDATED_AT}
+  text: String
+}
+
+input WorkFilterSortInput {
+  direction: FieldSortOrder! = DESC
+  field: WorkSortField! = UPDATED_AT
+}
+
+type WorkObject {
+  categories: [WorkCategoryObject!]!
+  id: UUID!
+  thumbnail: IllustrationObject!
+  titleEn: String!
+  titleUa: String!
+}
+
+enum WorkSortField {
+  UPDATED_AT
+}
