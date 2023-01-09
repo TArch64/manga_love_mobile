@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:manga_love_mobile/app-theme-colors.dart';
 import 'package:manga_love_mobile/env.dart';
 import 'package:manga_love_mobile/works/works-page.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: AppThemeColors.primary,
         ),
         home: const WorksPage(),
       ),

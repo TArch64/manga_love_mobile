@@ -15,7 +15,7 @@ class WorksPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Query_WorkCategories_Widget(builder: (result, {fetchMore, refetch}) {
-              String text = result.parsedData?.workCategories.map((e) => e.textEn).join(', ') ?? '';
+              String text = result.parsedData?.workCategories.map((e) => e.textEn).take(10).join(', ') ?? '';
               return Text(text);
             }),
           ],
