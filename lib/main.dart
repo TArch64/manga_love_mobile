@@ -2,36 +2,61 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:manga_love_mobile/app-theme-colors.dart';
 import 'package:manga_love_mobile/env.dart';
-import 'package:manga_love_mobile/works/works-page.dart';
+import 'package:manga_love_mobile/library/library-screen.dart';
+import 'package:manga_love_mobile/navigator/navigator-route.dart';
+import 'package:manga_love_mobile/navigator/navigator-routes.dart';
+import 'package:manga_love_mobile/profile/profile-screen.dart';
+import 'package:manga_love_mobile/works/works-screen.dart';
 
 void main() async {
   await initHiveForFlutter();
 
   runApp(MyApp(
-      graphQL: ValueNotifier(
-        GraphQLClient(
-          link: HttpLink(Env.apiEndpoint).concat(AuthLink(getToken: () => '')),
-          cache: GraphQLCache(store: HiveStore()),
-        ),
-      )
+    graphQL: ValueNotifier(
+      GraphQLClient(
+        link: HttpLink(Env.apiEndpoint).concat(AuthLink(getToken: () => '')),
+        cache: GraphQLCache(store: HiveStore()),
+      ),
+    ),
+    routes: NavigatorRoutes([
+      MainNavigatorRoute(
+        path: '/works',
+        widget: (context) => const WorksScreen(),
+        isInitial: true,
+      ),
+      MainNavigatorRoute(
+        path: '/library',
+        widget: (context) => const LibraryScreen(),
+      ),
+      MainNavigatorRoute(
+        path: '/profile',
+        widget: (context) => const ProfileScreen(),
+      ),
+    ]),
   ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.graphQL});
+  const MyApp({
+    super.key,
+    required this.graphQL,
+    required this.routes
+  });
 
   final ValueNotifier<GraphQLClient> graphQL;
+  final NavigatorRoutes routes;
 
   @override
   Widget build(BuildContext context) {
     return GraphQLProvider(
       client: graphQL,
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'MangaLove',
         theme: ThemeData(
           primarySwatch: AppThemeColors.primary,
         ),
-        home: const WorksPage(),
+        initialRoute: routes.initialRoute,
+        onGenerateRoute: routes.onGenerateRoute,
       ),
     );
   }
