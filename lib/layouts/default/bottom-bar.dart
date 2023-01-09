@@ -57,8 +57,8 @@ class BottomBar extends StatelessWidget {
       ),
       BottomBarItem(
         route: '/sign-in',
-        inactive: Icons.person_outlined,
-        active: Icons.person,
+        inactive: Icons.login_outlined,
+        active: Icons.login,
       ),
     ];
   }

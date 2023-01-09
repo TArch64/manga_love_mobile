@@ -22,6 +22,7 @@ dev_dependencies:
   graphql_codegen: ^0.12.0-beta.6
   build_runner: ^2.3.3
   envied_generator: ^0.3.0
+  flutter_launcher_icons: ^0.11.0
 
 flutter:
   uses-material-design: true
@@ -40,3 +41,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_icons:
+  image_path: "assets/launcher-icon.jpg"
+  android: true
+  ios: true
+  web:
+    generate: false
+  macos:
+    generate: false
+  windows:
+    generate: false
