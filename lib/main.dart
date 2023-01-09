@@ -5,7 +5,9 @@ import 'package:manga_love_mobile/env.dart';
 import 'package:manga_love_mobile/library/library-screen.dart';
 import 'package:manga_love_mobile/navigator/navigator-route.dart';
 import 'package:manga_love_mobile/navigator/navigator-routes.dart';
+import 'package:manga_love_mobile/preferences/user-preferences.dart';
 import 'package:manga_love_mobile/profile/profile-screen.dart';
+import 'package:manga_love_mobile/sign-in/sign-in-screen.dart';
 import 'package:manga_love_mobile/works/works-screen.dart';
 
 void main() async {
@@ -14,7 +16,9 @@ void main() async {
   runApp(MyApp(
     graphQL: ValueNotifier(
       GraphQLClient(
-        link: HttpLink(Env.apiEndpoint).concat(AuthLink(getToken: () => '')),
+        link: HttpLink(Env.apiEndpoint).concat(AuthLink(
+            getToken: UserPreferences.instance.fetchAuthToken
+        )),
         cache: GraphQLCache(store: HiveStore()),
       ),
     ),
@@ -32,6 +36,10 @@ void main() async {
         path: '/profile',
         widget: (context) => const ProfileScreen(),
       ),
+      MainNavigatorRoute(
+        path: '/sign-in',
+        widget: (context) => const SignInScreen(),
+      )
     ]),
   ));
 }

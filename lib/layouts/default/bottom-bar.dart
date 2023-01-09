@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manga_love_mobile/layouts/default/bottom-bar-item.dart';
+import 'package:manga_love_mobile/preferences/user-preferences.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({super.key});
@@ -23,24 +24,42 @@ class BottomBar extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
-          BottomBarItem(
-            route: '/works',
-            inactive: Icons.home_outlined,
-            active: Icons.home,
-          ),
-          BottomBarItem(
-            route: '/library',
-            inactive: Icons.bookmark_outline,
-            active: Icons.bookmark,
-          ),
-          BottomBarItem(
-            route: '/profile',
-            inactive: Icons.person_outlined,
-            active: Icons.person,
-          ),
-        ],
+        children: _buildMenu()
       ),
     );
+  }
+
+  List<Widget> _buildMenu() {
+    if (UserPreferences.instance.isSignedIn) {
+      return const [
+        BottomBarItem(
+          route: '/works',
+          inactive: Icons.home_outlined,
+          active: Icons.home,
+        ),
+        BottomBarItem(
+          route: '/library',
+          inactive: Icons.bookmark_outline,
+          active: Icons.bookmark,
+        ),
+        BottomBarItem(
+          route: '/profile',
+          inactive: Icons.person_outlined,
+          active: Icons.person,
+        ),
+      ];
+    }
+    return const [
+      BottomBarItem(
+        route: '/works',
+        inactive: Icons.home_outlined,
+        active: Icons.home,
+      ),
+      BottomBarItem(
+        route: '/sign-in',
+        inactive: Icons.person_outlined,
+        active: Icons.person,
+      ),
+    ];
   }
 }
