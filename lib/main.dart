@@ -12,12 +12,13 @@ import 'package:manga_love_mobile/works/works-screen.dart';
 
 void main() async {
   await initHiveForFlutter();
+  await UserPreferences.instance.init();
 
   runApp(MyApp(
     graphQL: ValueNotifier(
       GraphQLClient(
         link: HttpLink(Env.apiEndpoint).concat(AuthLink(
-            getToken: UserPreferences.instance.fetchAuthToken
+            getToken: () => UserPreferences.instance.authToken
         )),
         cache: GraphQLCache(store: HiveStore()),
       ),

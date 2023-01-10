@@ -1,20 +1,18 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
 
 class UserPreferences {
-  static const String _authTokenKey = 'user:auth-token';
+  static var instance = UserPreferences();
+  late Box _box;
 
-  static UserPreferences? _instance;
-  static UserPreferences get instance {
-    _instance ??= UserPreferences();
-    return _instance!;
+  Future<void> init() async {
+    _box = await Hive.openBox('user-preferences');
   }
 
-  bool isSignedIn = false;
+  String get authToken {
+    return _box.get('auth-token', defaultValue: '');
+  }
 
-  Future<String> fetchAuthToken() async {
-    var preferences = await SharedPreferences.getInstance();
-    var token = preferences.getString(_authTokenKey) ?? '';
-    isSignedIn = token.isNotEmpty;
-    return token;
+  bool get isSignedIn {
+    return _box.containsKey('auth-token');
   }
 }
