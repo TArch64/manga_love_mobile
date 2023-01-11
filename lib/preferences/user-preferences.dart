@@ -1,18 +1,16 @@
-import 'package:hive/hive.dart';
+import 'package:manga_love_mobile/preferences/preferences.dart';
 
-class UserPreferences {
+class UserPreferences extends Preferences {
   static var instance = UserPreferences();
-  late Box _box;
 
-  Future<void> init() async {
-    _box = await Hive.openBox('user-preferences');
-  }
+  @override
+  String get scope => 'user-preferences';
 
   String get authToken {
-    return _box.get('auth-token', defaultValue: '');
+    return store.get('auth-token', defaultValue: '');
   }
 
   bool get isSignedIn {
-    return _box.containsKey('auth-token');
+    return store.containsKey('auth-token');
   }
 }
