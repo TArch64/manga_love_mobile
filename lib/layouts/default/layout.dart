@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manga_love_mobile/layouts/default/bottom-bar.dart';
+import 'package:manga_love_mobile/layouts/default/bottom_bar.dart';
 
 class DefaultLayout extends StatelessWidget {
   const DefaultLayout({super.key, required this.body});

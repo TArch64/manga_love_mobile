@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manga_love_mobile/navigator/navigator-route.dart';
+import 'package:manga_love_mobile/navigator/navigator_route.dart';
 
 class NavigatorRoutes {
   NavigatorRoutes(this.routes);

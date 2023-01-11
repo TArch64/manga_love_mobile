@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:manga_love_mobile/layouts/default/bottom-bar-item.dart';
-import 'package:manga_love_mobile/preferences/user-preferences.dart';
+import 'package:manga_love_mobile/layouts/default/bottom_bar_item.dart';
+import 'package:manga_love_mobile/preferences/user_preferences.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({super.key});

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:manga_love_mobile/app-theme-colors.dart';
+import 'package:manga_love_mobile/app_theme_colors.dart';
 import 'package:manga_love_mobile/env.dart';
-import 'package:manga_love_mobile/library/library-screen.dart';
-import 'package:manga_love_mobile/navigator/navigator-route.dart';
-import 'package:manga_love_mobile/navigator/navigator-routes.dart';
-import 'package:manga_love_mobile/preferences/user-preferences.dart';
-import 'package:manga_love_mobile/profile/profile-screen.dart';
-import 'package:manga_love_mobile/sign-in/sign-in-screen.dart';
-import 'package:manga_love_mobile/works/works-screen.dart';
+import 'package:manga_love_mobile/library/library_screen.dart';
+import 'package:manga_love_mobile/navigator/navigator_route.dart';
+import 'package:manga_love_mobile/navigator/navigator_routes.dart';
+import 'package:manga_love_mobile/preferences/user_preferences.dart';
+import 'package:manga_love_mobile/profile/profile_screen.dart';
+import 'package:manga_love_mobile/sign-in/sign_in_screen.dart';
+import 'package:manga_love_mobile/works/works_screen.dart';
 
 void main() async {
   await initHiveForFlutter();
@@ -63,6 +63,7 @@ class MyApp extends StatelessWidget {
         title: 'MangaLove',
         theme: ThemeData(
           primarySwatch: AppThemeColors.primary,
+          fontFamily: 'Nunito Sans',
         ),
         initialRoute: routes.initialRoute,
         onGenerateRoute: routes.onGenerateRoute,

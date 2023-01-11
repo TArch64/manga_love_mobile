@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:manga_love_mobile/common/shapes/line-shape.dart';
+import 'package:manga_love_mobile/common/shapes/line_shape.dart';
 
 class AuthHeader extends StatelessWidget {
   const AuthHeader({super.key});
