@@ -3,8 +3,8 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:manga_love_mobile/common/graphql_utils.dart';
 import 'package:manga_love_mobile/common/text/heading.dart';
 import 'package:manga_love_mobile/layouts/auth/layout.dart';
-import 'package:manga_love_mobile/sign-in/graphql/sign_in.graphql.dart';
-import 'package:manga_love_mobile/sign-in/sign_in_form.dart';
+import 'package:manga_love_mobile/screens/sign-in/graphql/sign_in.graphql.dart';
+import 'package:manga_love_mobile/screens/sign-in/sign_in_form.dart';
 import 'package:manga_love_mobile/state/auth_model.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +22,7 @@ class SignInScreen extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(bottom: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Heading('Hello!', style: const TextStyle(
                   color: Color(0xFF909090),
@@ -41,15 +42,22 @@ class SignInScreen extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 50),
             child: SignInForm(key: _formKey),
           ),
-          Mutation_SignIn_Widget(
-            builder: (runMutation, _) {
-              return Consumer<AuthModel>(builder: (context, authModel, child) {
-                return ElevatedButton(
-                  onPressed: () => _signIn(context, authModel, runMutation),
-                  child: const Text('Sign in'),
-                );
-              });
-            }
+          Container(
+            margin: const EdgeInsets.only(bottom: 30),
+            child: Mutation_SignIn_Widget(
+              builder: (runMutation, _) {
+                return Consumer<AuthModel>(builder: (context, authModel, child) {
+                  return ElevatedButton(
+                    onPressed: () => _signIn(context, authModel, runMutation),
+                    child: const Text('Sign in'),
+                  );
+                });
+              }
+            ),
+          ),
+          TextButton(
+              onPressed: () => Navigator.pushReplacementNamed(context, '/sign-up'),
+              child: const Text('SIGN UP')
           )
         ],
       )

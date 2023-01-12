@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manga_love_mobile/layouts/default/layout.dart';
-import 'package:manga_love_mobile/works/graphql/work_categories.graphql.dart';
+import 'package:manga_love_mobile/screens/works/graphql/work_categories.graphql.dart';
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
