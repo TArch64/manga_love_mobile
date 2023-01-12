@@ -89,7 +89,7 @@ class SignInScreen extends StatelessWidget {
   }
 
   void _successSignIn(BuildContext context, AuthModel authModel, String token) async {
-    await authModel.setAuthToken(token);
+    await authModel.signIn(token);
     await Navigator.pushReplacementNamed(context, '/works');
   }
 }
