@@ -10,10 +10,7 @@ class OutlinedInputDecoration extends InputDecoration {
 
   static InputBorder _buildBorder(Color color) {
     return OutlineInputBorder(
-      borderSide: BorderSide(
-        color: color,
-        width: 1,
-      ),
+      borderSide: BorderSide(color: color, width: 1),
     );
   }
 }
