@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manga_love_mobile/layouts/default/bottom_bar_item.dart';
-import 'package:manga_love_mobile/preferences/user_preferences.dart';
+import 'package:manga_love_mobile/state/auth_model.dart';
+import 'package:provider/provider.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({super.key});
@@ -22,15 +23,17 @@ class BottomBar extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: _buildMenu()
-      ),
+      child: Consumer<AuthModel>(builder: (context, authModel, child) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: _buildMenu(authModel),
+        );
+      }),
     );
   }
 
-  List<Widget> _buildMenu() {
-    if (UserPreferences.instance.isSignedIn) {
+  List<Widget> _buildMenu(AuthModel authModel) {
+    if (authModel.isSignedIn) {
       return const [
         BottomBarItem(
           route: '/works',

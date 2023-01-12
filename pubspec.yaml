@@ -16,6 +16,7 @@ dependencies:
   hive: 2.2.3
   flutter_svg: ^1.1.6
   email_validator: ^2.1.17
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +43,8 @@ flutter:
     - family: 'Nunito Sans'
       fonts:
         - asset: 'assets/fonts/nunito-sans/NunitoSans-Regular.ttf'
+        - asset: 'assets/fonts/nunito-sans/NunitoSans-SemiBold.ttf'
+          weight: 600
         - asset: 'assets/fonts/nunito-sans/NunitoSans-Bold.ttf'
           weight: 700
 

@@ -7,11 +7,13 @@ class SignInForm extends StatefulWidget {
   const SignInForm({super.key});
 
   @override
-  State<SignInForm> createState() => _SignInFormState();
+  State<SignInForm> createState() => SignInFormState();
 }
 
-class _SignInFormState extends State<SignInForm> {
+class SignInFormState extends State<SignInForm> {
   final _formKey = GlobalKey<FormState>();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +24,24 @@ class _SignInFormState extends State<SignInForm> {
           Container(
             margin: const EdgeInsets.only(bottom: 20),
             child: TextFormField(
-              decoration: OutlinedInputDecoration(hintText: 'e-mail'),
+              decoration: OutlinedInputDecoration(hintText: 'username'),
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: FieldValidator.email(),
+              validator: FieldValidator.required(),
+              controller: _usernameController,
             ),
           ),
           PasswordFormField(
             decoration: OutlinedInputDecoration(hintText: 'password'),
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: FieldValidator.required(),
+            controller: _passwordController
           ),
         ],
       ),
     );
   }
+
+  String get username => _usernameController.value.text;
+  String get password => _passwordController.value.text;
+  bool validate() => _formKey.currentState!.validate();
 }

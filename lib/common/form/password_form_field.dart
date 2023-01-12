@@ -6,11 +6,13 @@ class PasswordFormField extends StatefulWidget {
     this.decoration,
     this.validator,
     this.autovalidateMode,
+    this.controller
   });
 
   final InputDecoration? decoration;
   final FormFieldValidator<String>? validator;
   final AutovalidateMode? autovalidateMode;
+  final TextEditingController? controller;
 
   @override
   State<PasswordFormField> createState() => _PasswordFormFieldState();
@@ -33,6 +35,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
       enableSuggestions: false,
       validator: widget.validator,
       autovalidateMode: widget.autovalidateMode,
+      controller: widget.controller,
     );
   }
 
