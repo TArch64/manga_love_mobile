@@ -2,10 +2,13 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 abstract class GraphQLUtils {
   static List<String> getErrorCodes(QueryResult result) {
-    if (!result.hasException) return [];
+    if (result.exception!.graphqlErrors.isEmpty) {
+      return ['unknown'];
+    }
+    return result.exception!.graphqlErrors.map(_getErrorCode).toList();
+  }
 
-    return result.exception!.graphqlErrors.map((error) {
-      return error.extensions!['exception']['thrownValue']['message'] as String;
-    }).toList();
+  static String _getErrorCode(GraphQLError error) {
+    return error.extensions!['exception']['thrownValue']['message'] as String;
   }
 }

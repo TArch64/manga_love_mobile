@@ -18,6 +18,7 @@ class NavigatorRouter {
     if (!_existsByPath(settings.name)) return null;
 
     return PageRouteBuilder(
+      transitionDuration: const Duration(milliseconds: 150),
       settings: settings,
       pageBuilder: (context, animation, secondaryAnimation) {
         return _forSettings(settings).widget(context);

@@ -3,25 +3,25 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-class Query_WorkCategories {
-  Query_WorkCategories({
+class Query$WorkCategories {
+  Query$WorkCategories({
     required this.workCategories,
     required this.$__typename,
   });
 
-  factory Query_WorkCategories.fromJson(Map<String, dynamic> json) {
+  factory Query$WorkCategories.fromJson(Map<String, dynamic> json) {
     final l$workCategories = json['workCategories'];
     final l$$__typename = json['__typename'];
-    return Query_WorkCategories(
+    return Query$WorkCategories(
       workCategories: (l$workCategories as List<dynamic>)
-          .map((e) => Query_WorkCategories_workCategories.fromJson(
+          .map((e) => Query$WorkCategories$workCategories.fromJson(
               (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query_WorkCategories_workCategories> workCategories;
+  final List<Query$WorkCategories$workCategories> workCategories;
 
   final String $__typename;
 
@@ -50,7 +50,7 @@ class Query_WorkCategories {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query_WorkCategories) || runtimeType != other.runtimeType) {
+    if (!(other is Query$WorkCategories) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$workCategories = workCategories;
@@ -74,45 +74,45 @@ class Query_WorkCategories {
   }
 }
 
-extension UtilityExtension_Query_WorkCategories on Query_WorkCategories {
-  CopyWith_Query_WorkCategories<Query_WorkCategories> get copyWith =>
-      CopyWith_Query_WorkCategories(
+extension UtilityExtension$Query$WorkCategories on Query$WorkCategories {
+  CopyWith$Query$WorkCategories<Query$WorkCategories> get copyWith =>
+      CopyWith$Query$WorkCategories(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith_Query_WorkCategories<TRes> {
-  factory CopyWith_Query_WorkCategories(
-    Query_WorkCategories instance,
-    TRes Function(Query_WorkCategories) then,
-  ) = _CopyWithImpl_Query_WorkCategories;
+abstract class CopyWith$Query$WorkCategories<TRes> {
+  factory CopyWith$Query$WorkCategories(
+    Query$WorkCategories instance,
+    TRes Function(Query$WorkCategories) then,
+  ) = _CopyWithImpl$Query$WorkCategories;
 
-  factory CopyWith_Query_WorkCategories.stub(TRes res) =
-      _CopyWithStubImpl_Query_WorkCategories;
+  factory CopyWith$Query$WorkCategories.stub(TRes res) =
+      _CopyWithStubImpl$Query$WorkCategories;
 
   TRes call({
-    List<Query_WorkCategories_workCategories>? workCategories,
+    List<Query$WorkCategories$workCategories>? workCategories,
     String? $__typename,
   });
   TRes workCategories(
-      Iterable<Query_WorkCategories_workCategories> Function(
+      Iterable<Query$WorkCategories$workCategories> Function(
               Iterable<
-                  CopyWith_Query_WorkCategories_workCategories<
-                      Query_WorkCategories_workCategories>>)
+                  CopyWith$Query$WorkCategories$workCategories<
+                      Query$WorkCategories$workCategories>>)
           _fn);
 }
 
-class _CopyWithImpl_Query_WorkCategories<TRes>
-    implements CopyWith_Query_WorkCategories<TRes> {
-  _CopyWithImpl_Query_WorkCategories(
+class _CopyWithImpl$Query$WorkCategories<TRes>
+    implements CopyWith$Query$WorkCategories<TRes> {
+  _CopyWithImpl$Query$WorkCategories(
     this._instance,
     this._then,
   );
 
-  final Query_WorkCategories _instance;
+  final Query$WorkCategories _instance;
 
-  final TRes Function(Query_WorkCategories) _then;
+  final TRes Function(Query$WorkCategories) _then;
 
   static const _undefined = {};
 
@@ -120,36 +120,36 @@ class _CopyWithImpl_Query_WorkCategories<TRes>
     Object? workCategories = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query_WorkCategories(
+      _then(Query$WorkCategories(
         workCategories: workCategories == _undefined || workCategories == null
             ? _instance.workCategories
-            : (workCategories as List<Query_WorkCategories_workCategories>),
+            : (workCategories as List<Query$WorkCategories$workCategories>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   TRes workCategories(
-          Iterable<Query_WorkCategories_workCategories> Function(
+          Iterable<Query$WorkCategories$workCategories> Function(
                   Iterable<
-                      CopyWith_Query_WorkCategories_workCategories<
-                          Query_WorkCategories_workCategories>>)
+                      CopyWith$Query$WorkCategories$workCategories<
+                          Query$WorkCategories$workCategories>>)
               _fn) =>
       call(
           workCategories: _fn(_instance.workCategories
-              .map((e) => CopyWith_Query_WorkCategories_workCategories(
+              .map((e) => CopyWith$Query$WorkCategories$workCategories(
                     e,
                     (i) => i,
                   ))).toList());
 }
 
-class _CopyWithStubImpl_Query_WorkCategories<TRes>
-    implements CopyWith_Query_WorkCategories<TRes> {
-  _CopyWithStubImpl_Query_WorkCategories(this._res);
+class _CopyWithStubImpl$Query$WorkCategories<TRes>
+    implements CopyWith$Query$WorkCategories<TRes> {
+  _CopyWithStubImpl$Query$WorkCategories(this._res);
 
   TRes _res;
 
   call({
-    List<Query_WorkCategories_workCategories>? workCategories,
+    List<Query$WorkCategories$workCategories>? workCategories,
     String? $__typename,
   }) =>
       _res;
@@ -209,13 +209,13 @@ const documentNodeQueryWorkCategories = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query_WorkCategories _parserFn_Query_WorkCategories(
+Query$WorkCategories _parserFn$Query$WorkCategories(
         Map<String, dynamic> data) =>
-    Query_WorkCategories.fromJson(data);
+    Query$WorkCategories.fromJson(data);
 
-class Options_Query_WorkCategories
-    extends graphql.QueryOptions<Query_WorkCategories> {
-  Options_Query_WorkCategories({
+class Options$Query$WorkCategories
+    extends graphql.QueryOptions<Query$WorkCategories> {
+  Options$Query$WorkCategories({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
@@ -232,13 +232,13 @@ class Options_Query_WorkCategories
           pollInterval: pollInterval,
           context: context,
           document: documentNodeQueryWorkCategories,
-          parserFn: _parserFn_Query_WorkCategories,
+          parserFn: _parserFn$Query$WorkCategories,
         );
 }
 
-class WatchOptions_Query_WorkCategories
-    extends graphql.WatchQueryOptions<Query_WorkCategories> {
-  WatchOptions_Query_WorkCategories({
+class WatchOptions$Query$WorkCategories
+    extends graphql.WatchQueryOptions<Query$WorkCategories> {
+  WatchOptions$Query$WorkCategories({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
@@ -261,12 +261,12 @@ class WatchOptions_Query_WorkCategories
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn_Query_WorkCategories,
+          parserFn: _parserFn$Query$WorkCategories,
         );
 }
 
-class FetchMoreOptions_Query_WorkCategories extends graphql.FetchMoreOptions {
-  FetchMoreOptions_Query_WorkCategories(
+class FetchMoreOptions$Query$WorkCategories extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$WorkCategories(
       {required graphql.UpdateQuery updateQuery})
       : super(
           updateQuery: updateQuery,
@@ -274,15 +274,15 @@ class FetchMoreOptions_Query_WorkCategories extends graphql.FetchMoreOptions {
         );
 }
 
-extension ClientExtension_Query_WorkCategories on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query_WorkCategories>> query_WorkCategories(
-          [Options_Query_WorkCategories? options]) async =>
-      await this.query(options ?? Options_Query_WorkCategories());
-  graphql.ObservableQuery<Query_WorkCategories> watchQuery_WorkCategories(
-          [WatchOptions_Query_WorkCategories? options]) =>
-      this.watchQuery(options ?? WatchOptions_Query_WorkCategories());
-  void writeQuery_WorkCategories({
-    required Query_WorkCategories data,
+extension ClientExtension$Query$WorkCategories on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$WorkCategories>> query$WorkCategories(
+          [Options$Query$WorkCategories? options]) async =>
+      await this.query(options ?? Options$Query$WorkCategories());
+  graphql.ObservableQuery<Query$WorkCategories> watchQuery$WorkCategories(
+          [WatchOptions$Query$WorkCategories? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$WorkCategories());
+  void writeQuery$WorkCategories({
+    required Query$WorkCategories data,
     bool broadcast = true,
   }) =>
       this.writeQuery(
@@ -292,53 +292,53 @@ extension ClientExtension_Query_WorkCategories on graphql.GraphQLClient {
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query_WorkCategories? readQuery_WorkCategories({bool optimistic = true}) {
+  Query$WorkCategories? readQuery$WorkCategories({bool optimistic = true}) {
     final result = this.readQuery(
       graphql.Request(
           operation:
               graphql.Operation(document: documentNodeQueryWorkCategories)),
       optimistic: optimistic,
     );
-    return result == null ? null : Query_WorkCategories.fromJson(result);
+    return result == null ? null : Query$WorkCategories.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query_WorkCategories> useQuery_WorkCategories(
-        [Options_Query_WorkCategories? options]) =>
-    graphql_flutter.useQuery(options ?? Options_Query_WorkCategories());
-graphql.ObservableQuery<Query_WorkCategories> useWatchQuery_WorkCategories(
-        [WatchOptions_Query_WorkCategories? options]) =>
+graphql_flutter.QueryHookResult<Query$WorkCategories> useQuery$WorkCategories(
+        [Options$Query$WorkCategories? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$WorkCategories());
+graphql.ObservableQuery<Query$WorkCategories> useWatchQuery$WorkCategories(
+        [WatchOptions$Query$WorkCategories? options]) =>
     graphql_flutter
-        .useWatchQuery(options ?? WatchOptions_Query_WorkCategories());
+        .useWatchQuery(options ?? WatchOptions$Query$WorkCategories());
 
-class Query_WorkCategories_Widget
-    extends graphql_flutter.Query<Query_WorkCategories> {
-  Query_WorkCategories_Widget({
+class Query$WorkCategories$Widget
+    extends graphql_flutter.Query<Query$WorkCategories> {
+  Query$WorkCategories$Widget({
     widgets.Key? key,
-    Options_Query_WorkCategories? options,
-    required graphql_flutter.QueryBuilder<Query_WorkCategories> builder,
+    Options$Query$WorkCategories? options,
+    required graphql_flutter.QueryBuilder<Query$WorkCategories> builder,
   }) : super(
           key: key,
-          options: options ?? Options_Query_WorkCategories(),
+          options: options ?? Options$Query$WorkCategories(),
           builder: builder,
         );
 }
 
-class Query_WorkCategories_workCategories {
-  Query_WorkCategories_workCategories({
+class Query$WorkCategories$workCategories {
+  Query$WorkCategories$workCategories({
     required this.id,
     required this.textEn,
     required this.textUa,
     required this.$__typename,
   });
 
-  factory Query_WorkCategories_workCategories.fromJson(
+  factory Query$WorkCategories$workCategories.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$textEn = json['textEn'];
     final l$textUa = json['textUa'];
     final l$$__typename = json['__typename'];
-    return Query_WorkCategories_workCategories(
+    return Query$WorkCategories$workCategories(
       id: (l$id as String),
       textEn: (l$textEn as String),
       textUa: (l$textUa as String),
@@ -386,7 +386,7 @@ class Query_WorkCategories_workCategories {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query_WorkCategories_workCategories) ||
+    if (!(other is Query$WorkCategories$workCategories) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -414,24 +414,24 @@ class Query_WorkCategories_workCategories {
   }
 }
 
-extension UtilityExtension_Query_WorkCategories_workCategories
-    on Query_WorkCategories_workCategories {
-  CopyWith_Query_WorkCategories_workCategories<
-          Query_WorkCategories_workCategories>
-      get copyWith => CopyWith_Query_WorkCategories_workCategories(
+extension UtilityExtension$Query$WorkCategories$workCategories
+    on Query$WorkCategories$workCategories {
+  CopyWith$Query$WorkCategories$workCategories<
+          Query$WorkCategories$workCategories>
+      get copyWith => CopyWith$Query$WorkCategories$workCategories(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith_Query_WorkCategories_workCategories<TRes> {
-  factory CopyWith_Query_WorkCategories_workCategories(
-    Query_WorkCategories_workCategories instance,
-    TRes Function(Query_WorkCategories_workCategories) then,
-  ) = _CopyWithImpl_Query_WorkCategories_workCategories;
+abstract class CopyWith$Query$WorkCategories$workCategories<TRes> {
+  factory CopyWith$Query$WorkCategories$workCategories(
+    Query$WorkCategories$workCategories instance,
+    TRes Function(Query$WorkCategories$workCategories) then,
+  ) = _CopyWithImpl$Query$WorkCategories$workCategories;
 
-  factory CopyWith_Query_WorkCategories_workCategories.stub(TRes res) =
-      _CopyWithStubImpl_Query_WorkCategories_workCategories;
+  factory CopyWith$Query$WorkCategories$workCategories.stub(TRes res) =
+      _CopyWithStubImpl$Query$WorkCategories$workCategories;
 
   TRes call({
     String? id,
@@ -441,16 +441,16 @@ abstract class CopyWith_Query_WorkCategories_workCategories<TRes> {
   });
 }
 
-class _CopyWithImpl_Query_WorkCategories_workCategories<TRes>
-    implements CopyWith_Query_WorkCategories_workCategories<TRes> {
-  _CopyWithImpl_Query_WorkCategories_workCategories(
+class _CopyWithImpl$Query$WorkCategories$workCategories<TRes>
+    implements CopyWith$Query$WorkCategories$workCategories<TRes> {
+  _CopyWithImpl$Query$WorkCategories$workCategories(
     this._instance,
     this._then,
   );
 
-  final Query_WorkCategories_workCategories _instance;
+  final Query$WorkCategories$workCategories _instance;
 
-  final TRes Function(Query_WorkCategories_workCategories) _then;
+  final TRes Function(Query$WorkCategories$workCategories) _then;
 
   static const _undefined = {};
 
@@ -460,7 +460,7 @@ class _CopyWithImpl_Query_WorkCategories_workCategories<TRes>
     Object? textUa = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query_WorkCategories_workCategories(
+      _then(Query$WorkCategories$workCategories(
         id: id == _undefined || id == null ? _instance.id : (id as String),
         textEn: textEn == _undefined || textEn == null
             ? _instance.textEn
@@ -474,9 +474,9 @@ class _CopyWithImpl_Query_WorkCategories_workCategories<TRes>
       ));
 }
 
-class _CopyWithStubImpl_Query_WorkCategories_workCategories<TRes>
-    implements CopyWith_Query_WorkCategories_workCategories<TRes> {
-  _CopyWithStubImpl_Query_WorkCategories_workCategories(this._res);
+class _CopyWithStubImpl$Query$WorkCategories$workCategories<TRes>
+    implements CopyWith$Query$WorkCategories$workCategories<TRes> {
+  _CopyWithStubImpl$Query$WorkCategories$workCategories(this._res);
 
   TRes _res;
 

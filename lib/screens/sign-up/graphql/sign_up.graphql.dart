@@ -4,33 +4,40 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-class Variables$Mutation$SignIn {
-  factory Variables$Mutation$SignIn({
+class Variables$Mutation$SignUp {
+  factory Variables$Mutation$SignUp({
+    required String email,
     required String username,
     required String password,
   }) =>
-      Variables$Mutation$SignIn._({
+      Variables$Mutation$SignUp._({
+        r'email': email,
         r'username': username,
         r'password': password,
       });
 
-  Variables$Mutation$SignIn._(this._$data);
+  Variables$Mutation$SignUp._(this._$data);
 
-  factory Variables$Mutation$SignIn.fromJson(Map<String, dynamic> data) {
+  factory Variables$Mutation$SignUp.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    final l$email = data['email'];
+    result$data['email'] = (l$email as String);
     final l$username = data['username'];
     result$data['username'] = (l$username as String);
     final l$password = data['password'];
     result$data['password'] = (l$password as String);
-    return Variables$Mutation$SignIn._(result$data);
+    return Variables$Mutation$SignUp._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
+  String get email => (_$data['email'] as String);
   String get username => (_$data['username'] as String);
   String get password => (_$data['password'] as String);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    final l$email = email;
+    result$data['email'] = l$email;
     final l$username = username;
     result$data['username'] = l$username;
     final l$password = password;
@@ -38,8 +45,8 @@ class Variables$Mutation$SignIn {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$SignIn<Variables$Mutation$SignIn> get copyWith =>
-      CopyWith$Variables$Mutation$SignIn(
+  CopyWith$Variables$Mutation$SignUp<Variables$Mutation$SignUp> get copyWith =>
+      CopyWith$Variables$Mutation$SignUp(
         this,
         (i) => i,
       );
@@ -48,8 +55,13 @@ class Variables$Mutation$SignIn {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$SignIn) ||
+    if (!(other is Variables$Mutation$SignUp) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$email = email;
+    final lOther$email = other.email;
+    if (l$email != lOther$email) {
       return false;
     }
     final l$username = username;
@@ -67,49 +79,54 @@ class Variables$Mutation$SignIn {
 
   @override
   int get hashCode {
+    final l$email = email;
     final l$username = username;
     final l$password = password;
     return Object.hashAll([
+      l$email,
       l$username,
       l$password,
     ]);
   }
 }
 
-abstract class CopyWith$Variables$Mutation$SignIn<TRes> {
-  factory CopyWith$Variables$Mutation$SignIn(
-    Variables$Mutation$SignIn instance,
-    TRes Function(Variables$Mutation$SignIn) then,
-  ) = _CopyWithImpl$Variables$Mutation$SignIn;
+abstract class CopyWith$Variables$Mutation$SignUp<TRes> {
+  factory CopyWith$Variables$Mutation$SignUp(
+    Variables$Mutation$SignUp instance,
+    TRes Function(Variables$Mutation$SignUp) then,
+  ) = _CopyWithImpl$Variables$Mutation$SignUp;
 
-  factory CopyWith$Variables$Mutation$SignIn.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Mutation$SignIn;
+  factory CopyWith$Variables$Mutation$SignUp.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$SignUp;
 
   TRes call({
+    String? email,
     String? username,
     String? password,
   });
 }
 
-class _CopyWithImpl$Variables$Mutation$SignIn<TRes>
-    implements CopyWith$Variables$Mutation$SignIn<TRes> {
-  _CopyWithImpl$Variables$Mutation$SignIn(
+class _CopyWithImpl$Variables$Mutation$SignUp<TRes>
+    implements CopyWith$Variables$Mutation$SignUp<TRes> {
+  _CopyWithImpl$Variables$Mutation$SignUp(
     this._instance,
     this._then,
   );
 
-  final Variables$Mutation$SignIn _instance;
+  final Variables$Mutation$SignUp _instance;
 
-  final TRes Function(Variables$Mutation$SignIn) _then;
+  final TRes Function(Variables$Mutation$SignUp) _then;
 
   static const _undefined = {};
 
   TRes call({
+    Object? email = _undefined,
     Object? username = _undefined,
     Object? password = _undefined,
   }) =>
-      _then(Variables$Mutation$SignIn._({
+      _then(Variables$Mutation$SignUp._({
         ..._instance._$data,
+        if (email != _undefined && email != null) 'email': (email as String),
         if (username != _undefined && username != null)
           'username': (username as String),
         if (password != _undefined && password != null)
@@ -117,43 +134,44 @@ class _CopyWithImpl$Variables$Mutation$SignIn<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$SignIn<TRes>
-    implements CopyWith$Variables$Mutation$SignIn<TRes> {
-  _CopyWithStubImpl$Variables$Mutation$SignIn(this._res);
+class _CopyWithStubImpl$Variables$Mutation$SignUp<TRes>
+    implements CopyWith$Variables$Mutation$SignUp<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$SignUp(this._res);
 
   TRes _res;
 
   call({
+    String? email,
     String? username,
     String? password,
   }) =>
       _res;
 }
 
-class Mutation$SignIn {
-  Mutation$SignIn({
-    required this.authSignIn,
+class Mutation$SignUp {
+  Mutation$SignUp({
+    required this.authSignUp,
     required this.$__typename,
   });
 
-  factory Mutation$SignIn.fromJson(Map<String, dynamic> json) {
-    final l$authSignIn = json['authSignIn'];
+  factory Mutation$SignUp.fromJson(Map<String, dynamic> json) {
+    final l$authSignUp = json['authSignUp'];
     final l$$__typename = json['__typename'];
-    return Mutation$SignIn(
-      authSignIn: Mutation$SignIn$authSignIn.fromJson(
-          (l$authSignIn as Map<String, dynamic>)),
+    return Mutation$SignUp(
+      authSignUp: Mutation$SignUp$authSignUp.fromJson(
+          (l$authSignUp as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$SignIn$authSignIn authSignIn;
+  final Mutation$SignUp$authSignUp authSignUp;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$authSignIn = authSignIn;
-    _resultData['authSignIn'] = l$authSignIn.toJson();
+    final l$authSignUp = authSignUp;
+    _resultData['authSignUp'] = l$authSignUp.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -161,10 +179,10 @@ class Mutation$SignIn {
 
   @override
   int get hashCode {
-    final l$authSignIn = authSignIn;
+    final l$authSignUp = authSignUp;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$authSignIn,
+      l$authSignUp,
       l$$__typename,
     ]);
   }
@@ -174,12 +192,12 @@ class Mutation$SignIn {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$SignIn) || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$SignUp) || runtimeType != other.runtimeType) {
       return false;
     }
-    final l$authSignIn = authSignIn;
-    final lOther$authSignIn = other.authSignIn;
-    if (l$authSignIn != lOther$authSignIn) {
+    final l$authSignUp = authSignUp;
+    final lOther$authSignUp = other.authSignUp;
+    if (l$authSignUp != lOther$authSignUp) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -191,82 +209,91 @@ class Mutation$SignIn {
   }
 }
 
-extension UtilityExtension$Mutation$SignIn on Mutation$SignIn {
-  CopyWith$Mutation$SignIn<Mutation$SignIn> get copyWith =>
-      CopyWith$Mutation$SignIn(
+extension UtilityExtension$Mutation$SignUp on Mutation$SignUp {
+  CopyWith$Mutation$SignUp<Mutation$SignUp> get copyWith =>
+      CopyWith$Mutation$SignUp(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith$Mutation$SignIn<TRes> {
-  factory CopyWith$Mutation$SignIn(
-    Mutation$SignIn instance,
-    TRes Function(Mutation$SignIn) then,
-  ) = _CopyWithImpl$Mutation$SignIn;
+abstract class CopyWith$Mutation$SignUp<TRes> {
+  factory CopyWith$Mutation$SignUp(
+    Mutation$SignUp instance,
+    TRes Function(Mutation$SignUp) then,
+  ) = _CopyWithImpl$Mutation$SignUp;
 
-  factory CopyWith$Mutation$SignIn.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$SignIn;
+  factory CopyWith$Mutation$SignUp.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$SignUp;
 
   TRes call({
-    Mutation$SignIn$authSignIn? authSignIn,
+    Mutation$SignUp$authSignUp? authSignUp,
     String? $__typename,
   });
-  CopyWith$Mutation$SignIn$authSignIn<TRes> get authSignIn;
+  CopyWith$Mutation$SignUp$authSignUp<TRes> get authSignUp;
 }
 
-class _CopyWithImpl$Mutation$SignIn<TRes>
-    implements CopyWith$Mutation$SignIn<TRes> {
-  _CopyWithImpl$Mutation$SignIn(
+class _CopyWithImpl$Mutation$SignUp<TRes>
+    implements CopyWith$Mutation$SignUp<TRes> {
+  _CopyWithImpl$Mutation$SignUp(
     this._instance,
     this._then,
   );
 
-  final Mutation$SignIn _instance;
+  final Mutation$SignUp _instance;
 
-  final TRes Function(Mutation$SignIn) _then;
+  final TRes Function(Mutation$SignUp) _then;
 
   static const _undefined = {};
 
   TRes call({
-    Object? authSignIn = _undefined,
+    Object? authSignUp = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Mutation$SignIn(
-        authSignIn: authSignIn == _undefined || authSignIn == null
-            ? _instance.authSignIn
-            : (authSignIn as Mutation$SignIn$authSignIn),
+      _then(Mutation$SignUp(
+        authSignUp: authSignUp == _undefined || authSignUp == null
+            ? _instance.authSignUp
+            : (authSignUp as Mutation$SignUp$authSignUp),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Mutation$SignIn$authSignIn<TRes> get authSignIn {
-    final local$authSignIn = _instance.authSignIn;
-    return CopyWith$Mutation$SignIn$authSignIn(
-        local$authSignIn, (e) => call(authSignIn: e));
+  CopyWith$Mutation$SignUp$authSignUp<TRes> get authSignUp {
+    final local$authSignUp = _instance.authSignUp;
+    return CopyWith$Mutation$SignUp$authSignUp(
+        local$authSignUp, (e) => call(authSignUp: e));
   }
 }
 
-class _CopyWithStubImpl$Mutation$SignIn<TRes>
-    implements CopyWith$Mutation$SignIn<TRes> {
-  _CopyWithStubImpl$Mutation$SignIn(this._res);
+class _CopyWithStubImpl$Mutation$SignUp<TRes>
+    implements CopyWith$Mutation$SignUp<TRes> {
+  _CopyWithStubImpl$Mutation$SignUp(this._res);
 
   TRes _res;
 
   call({
-    Mutation$SignIn$authSignIn? authSignIn,
+    Mutation$SignUp$authSignUp? authSignUp,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Mutation$SignIn$authSignIn<TRes> get authSignIn =>
-      CopyWith$Mutation$SignIn$authSignIn.stub(_res);
+  CopyWith$Mutation$SignUp$authSignUp<TRes> get authSignUp =>
+      CopyWith$Mutation$SignUp$authSignUp.stub(_res);
 }
 
-const documentNodeMutationSignIn = DocumentNode(definitions: [
+const documentNodeMutationSignUp = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.mutation,
-    name: NameNode(value: 'SignIn'),
+    name: NameNode(value: 'SignUp'),
     variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'email')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'username')),
         type: NamedTypeNode(
@@ -289,12 +316,16 @@ const documentNodeMutationSignIn = DocumentNode(definitions: [
     directives: [],
     selectionSet: SelectionSetNode(selections: [
       FieldNode(
-        name: NameNode(value: 'authSignIn'),
+        name: NameNode(value: 'authSignUp'),
         alias: null,
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
             value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'email'),
+                value: VariableNode(name: NameNode(value: 'email')),
+              ),
               ObjectFieldNode(
                 name: NameNode(value: 'username'),
                 value: VariableNode(name: NameNode(value: 'username')),
@@ -334,24 +365,24 @@ const documentNodeMutationSignIn = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$SignIn _parserFn$Mutation$SignIn(Map<String, dynamic> data) =>
-    Mutation$SignIn.fromJson(data);
-typedef OnMutationCompleted$Mutation$SignIn = FutureOr<void> Function(
+Mutation$SignUp _parserFn$Mutation$SignUp(Map<String, dynamic> data) =>
+    Mutation$SignUp.fromJson(data);
+typedef OnMutationCompleted$Mutation$SignUp = FutureOr<void> Function(
   dynamic,
-  Mutation$SignIn?,
+  Mutation$SignUp?,
 );
 
-class Options$Mutation$SignIn extends graphql.MutationOptions<Mutation$SignIn> {
-  Options$Mutation$SignIn({
+class Options$Mutation$SignUp extends graphql.MutationOptions<Mutation$SignUp> {
+  Options$Mutation$SignUp({
     String? operationName,
-    required Variables$Mutation$SignIn variables,
+    required Variables$Mutation$SignUp variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
     graphql.Context? context,
-    OnMutationCompleted$Mutation$SignIn? onCompleted,
-    graphql.OnMutationUpdate<Mutation$SignIn>? update,
+    OnMutationCompleted$Mutation$SignUp? onCompleted,
+    graphql.OnMutationUpdate<Mutation$SignUp>? update,
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
@@ -366,15 +397,15 @@ class Options$Mutation$SignIn extends graphql.MutationOptions<Mutation$SignIn> {
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$SignIn(data),
+                    data == null ? null : _parserFn$Mutation$SignUp(data),
                   ),
           update: update,
           onError: onError,
-          document: documentNodeMutationSignIn,
-          parserFn: _parserFn$Mutation$SignIn,
+          document: documentNodeMutationSignUp,
+          parserFn: _parserFn$Mutation$SignUp,
         );
 
-  final OnMutationCompleted$Mutation$SignIn? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$SignUp? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -385,11 +416,11 @@ class Options$Mutation$SignIn extends graphql.MutationOptions<Mutation$SignIn> {
       ];
 }
 
-class WatchOptions$Mutation$SignIn
-    extends graphql.WatchQueryOptions<Mutation$SignIn> {
-  WatchOptions$Mutation$SignIn({
+class WatchOptions$Mutation$SignUp
+    extends graphql.WatchQueryOptions<Mutation$SignUp> {
+  WatchOptions$Mutation$SignUp({
     String? operationName,
-    required Variables$Mutation$SignIn variables,
+    required Variables$Mutation$SignUp variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -407,40 +438,40 @@ class WatchOptions$Mutation$SignIn
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult,
           context: context,
-          document: documentNodeMutationSignIn,
+          document: documentNodeMutationSignUp,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$SignIn,
+          parserFn: _parserFn$Mutation$SignUp,
         );
 }
 
-extension ClientExtension$Mutation$SignIn on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$SignIn>> mutate$SignIn(
-          Options$Mutation$SignIn options) async =>
+extension ClientExtension$Mutation$SignUp on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$SignUp>> mutate$SignUp(
+          Options$Mutation$SignUp options) async =>
       await this.mutate(options);
-  graphql.ObservableQuery<Mutation$SignIn> watchMutation$SignIn(
-          WatchOptions$Mutation$SignIn options) =>
+  graphql.ObservableQuery<Mutation$SignUp> watchMutation$SignUp(
+          WatchOptions$Mutation$SignUp options) =>
       this.watchMutation(options);
 }
 
-class Mutation$SignIn$HookResult {
-  Mutation$SignIn$HookResult(
+class Mutation$SignUp$HookResult {
+  Mutation$SignUp$HookResult(
     this.runMutation,
     this.result,
   );
 
-  final RunMutation$Mutation$SignIn runMutation;
+  final RunMutation$Mutation$SignUp runMutation;
 
-  final graphql.QueryResult<Mutation$SignIn> result;
+  final graphql.QueryResult<Mutation$SignUp> result;
 }
 
-Mutation$SignIn$HookResult useMutation$SignIn(
-    [WidgetOptions$Mutation$SignIn? options]) {
+Mutation$SignUp$HookResult useMutation$SignUp(
+    [WidgetOptions$Mutation$SignUp? options]) {
   final result =
-      graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$SignIn());
-  return Mutation$SignIn$HookResult(
+      graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$SignUp());
+  return Mutation$SignUp$HookResult(
     (variables, {optimisticResult}) => result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult,
@@ -449,21 +480,21 @@ Mutation$SignIn$HookResult useMutation$SignIn(
   );
 }
 
-graphql.ObservableQuery<Mutation$SignIn> useWatchMutation$SignIn(
-        WatchOptions$Mutation$SignIn options) =>
+graphql.ObservableQuery<Mutation$SignUp> useWatchMutation$SignUp(
+        WatchOptions$Mutation$SignUp options) =>
     graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$SignIn
-    extends graphql.MutationOptions<Mutation$SignIn> {
-  WidgetOptions$Mutation$SignIn({
+class WidgetOptions$Mutation$SignUp
+    extends graphql.MutationOptions<Mutation$SignUp> {
+  WidgetOptions$Mutation$SignUp({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
     graphql.Context? context,
-    OnMutationCompleted$Mutation$SignIn? onCompleted,
-    graphql.OnMutationUpdate<Mutation$SignIn>? update,
+    OnMutationCompleted$Mutation$SignUp? onCompleted,
+    graphql.OnMutationUpdate<Mutation$SignUp>? update,
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
@@ -477,15 +508,15 @@ class WidgetOptions$Mutation$SignIn
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$SignIn(data),
+                    data == null ? null : _parserFn$Mutation$SignUp(data),
                   ),
           update: update,
           onError: onError,
-          document: documentNodeMutationSignIn,
-          parserFn: _parserFn$Mutation$SignIn,
+          document: documentNodeMutationSignUp,
+          parserFn: _parserFn$Mutation$SignUp,
         );
 
-  final OnMutationCompleted$Mutation$SignIn? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$SignUp? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -496,24 +527,24 @@ class WidgetOptions$Mutation$SignIn
       ];
 }
 
-typedef RunMutation$Mutation$SignIn = graphql.MultiSourceResult<Mutation$SignIn>
+typedef RunMutation$Mutation$SignUp = graphql.MultiSourceResult<Mutation$SignUp>
     Function(
-  Variables$Mutation$SignIn, {
+  Variables$Mutation$SignUp, {
   Object? optimisticResult,
 });
-typedef Builder$Mutation$SignIn = widgets.Widget Function(
-  RunMutation$Mutation$SignIn,
-  graphql.QueryResult<Mutation$SignIn>?,
+typedef Builder$Mutation$SignUp = widgets.Widget Function(
+  RunMutation$Mutation$SignUp,
+  graphql.QueryResult<Mutation$SignUp>?,
 );
 
-class Mutation$SignIn$Widget extends graphql_flutter.Mutation<Mutation$SignIn> {
-  Mutation$SignIn$Widget({
+class Mutation$SignUp$Widget extends graphql_flutter.Mutation<Mutation$SignUp> {
+  Mutation$SignUp$Widget({
     widgets.Key? key,
-    WidgetOptions$Mutation$SignIn? options,
-    required Builder$Mutation$SignIn builder,
+    WidgetOptions$Mutation$SignUp? options,
+    required Builder$Mutation$SignUp builder,
   }) : super(
           key: key,
-          options: options ?? WidgetOptions$Mutation$SignIn(),
+          options: options ?? WidgetOptions$Mutation$SignUp(),
           builder: (
             run,
             result,
@@ -532,16 +563,16 @@ class Mutation$SignIn$Widget extends graphql_flutter.Mutation<Mutation$SignIn> {
         );
 }
 
-class Mutation$SignIn$authSignIn {
-  Mutation$SignIn$authSignIn({
+class Mutation$SignUp$authSignUp {
+  Mutation$SignUp$authSignUp({
     required this.token,
     required this.$__typename,
   });
 
-  factory Mutation$SignIn$authSignIn.fromJson(Map<String, dynamic> json) {
+  factory Mutation$SignUp$authSignUp.fromJson(Map<String, dynamic> json) {
     final l$token = json['token'];
     final l$$__typename = json['__typename'];
-    return Mutation$SignIn$authSignIn(
+    return Mutation$SignUp$authSignUp(
       token: (l$token as String),
       $__typename: (l$$__typename as String),
     );
@@ -575,7 +606,7 @@ class Mutation$SignIn$authSignIn {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$SignIn$authSignIn) ||
+    if (!(other is Mutation$SignUp$authSignUp) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -593,23 +624,23 @@ class Mutation$SignIn$authSignIn {
   }
 }
 
-extension UtilityExtension$Mutation$SignIn$authSignIn
-    on Mutation$SignIn$authSignIn {
-  CopyWith$Mutation$SignIn$authSignIn<Mutation$SignIn$authSignIn>
-      get copyWith => CopyWith$Mutation$SignIn$authSignIn(
+extension UtilityExtension$Mutation$SignUp$authSignUp
+    on Mutation$SignUp$authSignUp {
+  CopyWith$Mutation$SignUp$authSignUp<Mutation$SignUp$authSignUp>
+      get copyWith => CopyWith$Mutation$SignUp$authSignUp(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Mutation$SignIn$authSignIn<TRes> {
-  factory CopyWith$Mutation$SignIn$authSignIn(
-    Mutation$SignIn$authSignIn instance,
-    TRes Function(Mutation$SignIn$authSignIn) then,
-  ) = _CopyWithImpl$Mutation$SignIn$authSignIn;
+abstract class CopyWith$Mutation$SignUp$authSignUp<TRes> {
+  factory CopyWith$Mutation$SignUp$authSignUp(
+    Mutation$SignUp$authSignUp instance,
+    TRes Function(Mutation$SignUp$authSignUp) then,
+  ) = _CopyWithImpl$Mutation$SignUp$authSignUp;
 
-  factory CopyWith$Mutation$SignIn$authSignIn.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$SignIn$authSignIn;
+  factory CopyWith$Mutation$SignUp$authSignUp.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$SignUp$authSignUp;
 
   TRes call({
     String? token,
@@ -617,16 +648,16 @@ abstract class CopyWith$Mutation$SignIn$authSignIn<TRes> {
   });
 }
 
-class _CopyWithImpl$Mutation$SignIn$authSignIn<TRes>
-    implements CopyWith$Mutation$SignIn$authSignIn<TRes> {
-  _CopyWithImpl$Mutation$SignIn$authSignIn(
+class _CopyWithImpl$Mutation$SignUp$authSignUp<TRes>
+    implements CopyWith$Mutation$SignUp$authSignUp<TRes> {
+  _CopyWithImpl$Mutation$SignUp$authSignUp(
     this._instance,
     this._then,
   );
 
-  final Mutation$SignIn$authSignIn _instance;
+  final Mutation$SignUp$authSignUp _instance;
 
-  final TRes Function(Mutation$SignIn$authSignIn) _then;
+  final TRes Function(Mutation$SignUp$authSignUp) _then;
 
   static const _undefined = {};
 
@@ -634,7 +665,7 @@ class _CopyWithImpl$Mutation$SignIn$authSignIn<TRes>
     Object? token = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Mutation$SignIn$authSignIn(
+      _then(Mutation$SignUp$authSignUp(
         token: token == _undefined || token == null
             ? _instance.token
             : (token as String),
@@ -644,9 +675,9 @@ class _CopyWithImpl$Mutation$SignIn$authSignIn<TRes>
       ));
 }
 
-class _CopyWithStubImpl$Mutation$SignIn$authSignIn<TRes>
-    implements CopyWith$Mutation$SignIn$authSignIn<TRes> {
-  _CopyWithStubImpl$Mutation$SignIn$authSignIn(this._res);
+class _CopyWithStubImpl$Mutation$SignUp$authSignUp<TRes>
+    implements CopyWith$Mutation$SignUp$authSignUp<TRes> {
+  _CopyWithStubImpl$Mutation$SignUp$authSignUp(this._res);
 
   TRes _res;
 

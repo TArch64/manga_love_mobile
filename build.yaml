@@ -3,7 +3,6 @@ targets:
     builders:
       graphql_codegen:
         options:
-          namingSeparator: "_"
           clients:
             - graphql
             - graphql_flutter

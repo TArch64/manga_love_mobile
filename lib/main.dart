@@ -33,13 +33,11 @@ class MyApp extends StatelessWidget {
     super.key,
     required this.graphQL,
     required this.authModel,
-  }) {
-    router = NavigatorRouter(routes: _routes);
-  }
+  });
 
   final ValueNotifier<GraphQLClient> graphQL;
   final AuthModel authModel;
-  late NavigatorRouter router;
+  late NavigatorRouter router = NavigatorRouter(routes: _routes);
 
   @override
   Widget build(BuildContext context) {

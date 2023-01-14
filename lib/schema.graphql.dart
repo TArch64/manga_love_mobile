@@ -1,20 +1,20 @@
-class Input_CreateWorkInput {
-  factory Input_CreateWorkInput({
+class Input$CreateWorkInput {
+  factory Input$CreateWorkInput({
     required List<String> categories,
     required String illustration,
     required String titleEn,
     required String titleUa,
   }) =>
-      Input_CreateWorkInput._({
+      Input$CreateWorkInput._({
         r'categories': categories,
         r'illustration': illustration,
         r'titleEn': titleEn,
         r'titleUa': titleUa,
       });
 
-  Input_CreateWorkInput._(this._$data);
+  Input$CreateWorkInput._(this._$data);
 
-  factory Input_CreateWorkInput.fromJson(Map<String, dynamic> data) {
+  factory Input$CreateWorkInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$categories = data['categories'];
     result$data['categories'] =
@@ -25,7 +25,7 @@ class Input_CreateWorkInput {
     result$data['titleEn'] = (l$titleEn as String);
     final l$titleUa = data['titleUa'];
     result$data['titleUa'] = (l$titleUa as String);
-    return Input_CreateWorkInput._(result$data);
+    return Input$CreateWorkInput._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -47,8 +47,8 @@ class Input_CreateWorkInput {
     return result$data;
   }
 
-  CopyWith_Input_CreateWorkInput<Input_CreateWorkInput> get copyWith =>
-      CopyWith_Input_CreateWorkInput(
+  CopyWith$Input$CreateWorkInput<Input$CreateWorkInput> get copyWith =>
+      CopyWith$Input$CreateWorkInput(
         this,
         (i) => i,
       );
@@ -57,7 +57,7 @@ class Input_CreateWorkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input_CreateWorkInput) || runtimeType != other.runtimeType) {
+    if (!(other is Input$CreateWorkInput) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$categories = categories;
@@ -105,14 +105,14 @@ class Input_CreateWorkInput {
   }
 }
 
-abstract class CopyWith_Input_CreateWorkInput<TRes> {
-  factory CopyWith_Input_CreateWorkInput(
-    Input_CreateWorkInput instance,
-    TRes Function(Input_CreateWorkInput) then,
-  ) = _CopyWithImpl_Input_CreateWorkInput;
+abstract class CopyWith$Input$CreateWorkInput<TRes> {
+  factory CopyWith$Input$CreateWorkInput(
+    Input$CreateWorkInput instance,
+    TRes Function(Input$CreateWorkInput) then,
+  ) = _CopyWithImpl$Input$CreateWorkInput;
 
-  factory CopyWith_Input_CreateWorkInput.stub(TRes res) =
-      _CopyWithStubImpl_Input_CreateWorkInput;
+  factory CopyWith$Input$CreateWorkInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CreateWorkInput;
 
   TRes call({
     List<String>? categories,
@@ -122,16 +122,16 @@ abstract class CopyWith_Input_CreateWorkInput<TRes> {
   });
 }
 
-class _CopyWithImpl_Input_CreateWorkInput<TRes>
-    implements CopyWith_Input_CreateWorkInput<TRes> {
-  _CopyWithImpl_Input_CreateWorkInput(
+class _CopyWithImpl$Input$CreateWorkInput<TRes>
+    implements CopyWith$Input$CreateWorkInput<TRes> {
+  _CopyWithImpl$Input$CreateWorkInput(
     this._instance,
     this._then,
   );
 
-  final Input_CreateWorkInput _instance;
+  final Input$CreateWorkInput _instance;
 
-  final TRes Function(Input_CreateWorkInput) _then;
+  final TRes Function(Input$CreateWorkInput) _then;
 
   static const _undefined = {};
 
@@ -141,7 +141,7 @@ class _CopyWithImpl_Input_CreateWorkInput<TRes>
     Object? titleEn = _undefined,
     Object? titleUa = _undefined,
   }) =>
-      _then(Input_CreateWorkInput._({
+      _then(Input$CreateWorkInput._({
         ..._instance._$data,
         if (categories != _undefined && categories != null)
           'categories': (categories as List<String>),
@@ -154,9 +154,9 @@ class _CopyWithImpl_Input_CreateWorkInput<TRes>
       }));
 }
 
-class _CopyWithStubImpl_Input_CreateWorkInput<TRes>
-    implements CopyWith_Input_CreateWorkInput<TRes> {
-  _CopyWithStubImpl_Input_CreateWorkInput(this._res);
+class _CopyWithStubImpl$Input$CreateWorkInput<TRes>
+    implements CopyWith$Input$CreateWorkInput<TRes> {
+  _CopyWithStubImpl$Input$CreateWorkInput(this._res);
 
   TRes _res;
 
@@ -169,25 +169,25 @@ class _CopyWithStubImpl_Input_CreateWorkInput<TRes>
       _res;
 }
 
-class Input_SignInInput {
-  factory Input_SignInInput({
+class Input$SignInInput {
+  factory Input$SignInInput({
     required String password,
     required String username,
   }) =>
-      Input_SignInInput._({
+      Input$SignInInput._({
         r'password': password,
         r'username': username,
       });
 
-  Input_SignInInput._(this._$data);
+  Input$SignInInput._(this._$data);
 
-  factory Input_SignInInput.fromJson(Map<String, dynamic> data) {
+  factory Input$SignInInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$password = data['password'];
     result$data['password'] = (l$password as String);
     final l$username = data['username'];
     result$data['username'] = (l$username as String);
-    return Input_SignInInput._(result$data);
+    return Input$SignInInput._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -203,8 +203,8 @@ class Input_SignInInput {
     return result$data;
   }
 
-  CopyWith_Input_SignInInput<Input_SignInInput> get copyWith =>
-      CopyWith_Input_SignInInput(
+  CopyWith$Input$SignInInput<Input$SignInInput> get copyWith =>
+      CopyWith$Input$SignInInput(
         this,
         (i) => i,
       );
@@ -213,7 +213,7 @@ class Input_SignInInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input_SignInInput) || runtimeType != other.runtimeType) {
+    if (!(other is Input$SignInInput) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$password = password;
@@ -240,14 +240,14 @@ class Input_SignInInput {
   }
 }
 
-abstract class CopyWith_Input_SignInInput<TRes> {
-  factory CopyWith_Input_SignInInput(
-    Input_SignInInput instance,
-    TRes Function(Input_SignInInput) then,
-  ) = _CopyWithImpl_Input_SignInInput;
+abstract class CopyWith$Input$SignInInput<TRes> {
+  factory CopyWith$Input$SignInInput(
+    Input$SignInInput instance,
+    TRes Function(Input$SignInInput) then,
+  ) = _CopyWithImpl$Input$SignInInput;
 
-  factory CopyWith_Input_SignInInput.stub(TRes res) =
-      _CopyWithStubImpl_Input_SignInInput;
+  factory CopyWith$Input$SignInInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$SignInInput;
 
   TRes call({
     String? password,
@@ -255,16 +255,16 @@ abstract class CopyWith_Input_SignInInput<TRes> {
   });
 }
 
-class _CopyWithImpl_Input_SignInInput<TRes>
-    implements CopyWith_Input_SignInInput<TRes> {
-  _CopyWithImpl_Input_SignInInput(
+class _CopyWithImpl$Input$SignInInput<TRes>
+    implements CopyWith$Input$SignInInput<TRes> {
+  _CopyWithImpl$Input$SignInInput(
     this._instance,
     this._then,
   );
 
-  final Input_SignInInput _instance;
+  final Input$SignInInput _instance;
 
-  final TRes Function(Input_SignInInput) _then;
+  final TRes Function(Input$SignInInput) _then;
 
   static const _undefined = {};
 
@@ -272,7 +272,7 @@ class _CopyWithImpl_Input_SignInInput<TRes>
     Object? password = _undefined,
     Object? username = _undefined,
   }) =>
-      _then(Input_SignInInput._({
+      _then(Input$SignInInput._({
         ..._instance._$data,
         if (password != _undefined && password != null)
           'password': (password as String),
@@ -281,9 +281,9 @@ class _CopyWithImpl_Input_SignInInput<TRes>
       }));
 }
 
-class _CopyWithStubImpl_Input_SignInInput<TRes>
-    implements CopyWith_Input_SignInInput<TRes> {
-  _CopyWithStubImpl_Input_SignInInput(this._res);
+class _CopyWithStubImpl$Input$SignInInput<TRes>
+    implements CopyWith$Input$SignInInput<TRes> {
+  _CopyWithStubImpl$Input$SignInInput(this._res);
 
   TRes _res;
 
@@ -294,23 +294,23 @@ class _CopyWithStubImpl_Input_SignInInput<TRes>
       _res;
 }
 
-class Input_SignUpInput {
-  factory Input_SignUpInput({
+class Input$SignUpInput {
+  factory Input$SignUpInput({
     String? avatar,
     required String email,
     required String password,
     required String username,
   }) =>
-      Input_SignUpInput._({
+      Input$SignUpInput._({
         if (avatar != null) r'avatar': avatar,
         r'email': email,
         r'password': password,
         r'username': username,
       });
 
-  Input_SignUpInput._(this._$data);
+  Input$SignUpInput._(this._$data);
 
-  factory Input_SignUpInput.fromJson(Map<String, dynamic> data) {
+  factory Input$SignUpInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('avatar')) {
       final l$avatar = data['avatar'];
@@ -322,7 +322,7 @@ class Input_SignUpInput {
     result$data['password'] = (l$password as String);
     final l$username = data['username'];
     result$data['username'] = (l$username as String);
-    return Input_SignUpInput._(result$data);
+    return Input$SignUpInput._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -346,8 +346,8 @@ class Input_SignUpInput {
     return result$data;
   }
 
-  CopyWith_Input_SignUpInput<Input_SignUpInput> get copyWith =>
-      CopyWith_Input_SignUpInput(
+  CopyWith$Input$SignUpInput<Input$SignUpInput> get copyWith =>
+      CopyWith$Input$SignUpInput(
         this,
         (i) => i,
       );
@@ -356,7 +356,7 @@ class Input_SignUpInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input_SignUpInput) || runtimeType != other.runtimeType) {
+    if (!(other is Input$SignUpInput) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$avatar = avatar;
@@ -400,14 +400,14 @@ class Input_SignUpInput {
   }
 }
 
-abstract class CopyWith_Input_SignUpInput<TRes> {
-  factory CopyWith_Input_SignUpInput(
-    Input_SignUpInput instance,
-    TRes Function(Input_SignUpInput) then,
-  ) = _CopyWithImpl_Input_SignUpInput;
+abstract class CopyWith$Input$SignUpInput<TRes> {
+  factory CopyWith$Input$SignUpInput(
+    Input$SignUpInput instance,
+    TRes Function(Input$SignUpInput) then,
+  ) = _CopyWithImpl$Input$SignUpInput;
 
-  factory CopyWith_Input_SignUpInput.stub(TRes res) =
-      _CopyWithStubImpl_Input_SignUpInput;
+  factory CopyWith$Input$SignUpInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$SignUpInput;
 
   TRes call({
     String? avatar,
@@ -417,16 +417,16 @@ abstract class CopyWith_Input_SignUpInput<TRes> {
   });
 }
 
-class _CopyWithImpl_Input_SignUpInput<TRes>
-    implements CopyWith_Input_SignUpInput<TRes> {
-  _CopyWithImpl_Input_SignUpInput(
+class _CopyWithImpl$Input$SignUpInput<TRes>
+    implements CopyWith$Input$SignUpInput<TRes> {
+  _CopyWithImpl$Input$SignUpInput(
     this._instance,
     this._then,
   );
 
-  final Input_SignUpInput _instance;
+  final Input$SignUpInput _instance;
 
-  final TRes Function(Input_SignUpInput) _then;
+  final TRes Function(Input$SignUpInput) _then;
 
   static const _undefined = {};
 
@@ -436,7 +436,7 @@ class _CopyWithImpl_Input_SignUpInput<TRes>
     Object? password = _undefined,
     Object? username = _undefined,
   }) =>
-      _then(Input_SignUpInput._({
+      _then(Input$SignUpInput._({
         ..._instance._$data,
         if (avatar != _undefined) 'avatar': (avatar as String?),
         if (email != _undefined && email != null) 'email': (email as String),
@@ -447,9 +447,9 @@ class _CopyWithImpl_Input_SignUpInput<TRes>
       }));
 }
 
-class _CopyWithStubImpl_Input_SignUpInput<TRes>
-    implements CopyWith_Input_SignUpInput<TRes> {
-  _CopyWithStubImpl_Input_SignUpInput(this._res);
+class _CopyWithStubImpl$Input$SignUpInput<TRes>
+    implements CopyWith$Input$SignUpInput<TRes> {
+  _CopyWithStubImpl$Input$SignUpInput(this._res);
 
   TRes _res;
 
@@ -462,15 +462,15 @@ class _CopyWithStubImpl_Input_SignUpInput<TRes>
       _res;
 }
 
-class Input_WorkFilterInput {
-  factory Input_WorkFilterInput({
+class Input$WorkFilterInput {
+  factory Input$WorkFilterInput({
     List<String>? categories,
     required int count,
     required int offset,
-    required Input_WorkFilterSortInput sort,
+    required Input$WorkFilterSortInput sort,
     String? text,
   }) =>
-      Input_WorkFilterInput._({
+      Input$WorkFilterInput._({
         if (categories != null) r'categories': categories,
         r'count': count,
         r'offset': offset,
@@ -478,9 +478,9 @@ class Input_WorkFilterInput {
         if (text != null) r'text': text,
       });
 
-  Input_WorkFilterInput._(this._$data);
+  Input$WorkFilterInput._(this._$data);
 
-  factory Input_WorkFilterInput.fromJson(Map<String, dynamic> data) {
+  factory Input$WorkFilterInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('categories')) {
       final l$categories = data['categories'];
@@ -493,12 +493,12 @@ class Input_WorkFilterInput {
     result$data['offset'] = (l$offset as int);
     final l$sort = data['sort'];
     result$data['sort'] =
-        Input_WorkFilterSortInput.fromJson((l$sort as Map<String, dynamic>));
+        Input$WorkFilterSortInput.fromJson((l$sort as Map<String, dynamic>));
     if (data.containsKey('text')) {
       final l$text = data['text'];
       result$data['text'] = (l$text as String?);
     }
-    return Input_WorkFilterInput._(result$data);
+    return Input$WorkFilterInput._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -506,8 +506,8 @@ class Input_WorkFilterInput {
   List<String>? get categories => (_$data['categories'] as List<String>?);
   int get count => (_$data['count'] as int);
   int get offset => (_$data['offset'] as int);
-  Input_WorkFilterSortInput get sort =>
-      (_$data['sort'] as Input_WorkFilterSortInput);
+  Input$WorkFilterSortInput get sort =>
+      (_$data['sort'] as Input$WorkFilterSortInput);
   String? get text => (_$data['text'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -528,8 +528,8 @@ class Input_WorkFilterInput {
     return result$data;
   }
 
-  CopyWith_Input_WorkFilterInput<Input_WorkFilterInput> get copyWith =>
-      CopyWith_Input_WorkFilterInput(
+  CopyWith$Input$WorkFilterInput<Input$WorkFilterInput> get copyWith =>
+      CopyWith$Input$WorkFilterInput(
         this,
         (i) => i,
       );
@@ -538,7 +538,7 @@ class Input_WorkFilterInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input_WorkFilterInput) || runtimeType != other.runtimeType) {
+    if (!(other is Input$WorkFilterInput) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$categories = categories;
@@ -608,35 +608,35 @@ class Input_WorkFilterInput {
   }
 }
 
-abstract class CopyWith_Input_WorkFilterInput<TRes> {
-  factory CopyWith_Input_WorkFilterInput(
-    Input_WorkFilterInput instance,
-    TRes Function(Input_WorkFilterInput) then,
-  ) = _CopyWithImpl_Input_WorkFilterInput;
+abstract class CopyWith$Input$WorkFilterInput<TRes> {
+  factory CopyWith$Input$WorkFilterInput(
+    Input$WorkFilterInput instance,
+    TRes Function(Input$WorkFilterInput) then,
+  ) = _CopyWithImpl$Input$WorkFilterInput;
 
-  factory CopyWith_Input_WorkFilterInput.stub(TRes res) =
-      _CopyWithStubImpl_Input_WorkFilterInput;
+  factory CopyWith$Input$WorkFilterInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$WorkFilterInput;
 
   TRes call({
     List<String>? categories,
     int? count,
     int? offset,
-    Input_WorkFilterSortInput? sort,
+    Input$WorkFilterSortInput? sort,
     String? text,
   });
-  CopyWith_Input_WorkFilterSortInput<TRes> get sort;
+  CopyWith$Input$WorkFilterSortInput<TRes> get sort;
 }
 
-class _CopyWithImpl_Input_WorkFilterInput<TRes>
-    implements CopyWith_Input_WorkFilterInput<TRes> {
-  _CopyWithImpl_Input_WorkFilterInput(
+class _CopyWithImpl$Input$WorkFilterInput<TRes>
+    implements CopyWith$Input$WorkFilterInput<TRes> {
+  _CopyWithImpl$Input$WorkFilterInput(
     this._instance,
     this._then,
   );
 
-  final Input_WorkFilterInput _instance;
+  final Input$WorkFilterInput _instance;
 
-  final TRes Function(Input_WorkFilterInput) _then;
+  final TRes Function(Input$WorkFilterInput) _then;
 
   static const _undefined = {};
 
@@ -647,25 +647,25 @@ class _CopyWithImpl_Input_WorkFilterInput<TRes>
     Object? sort = _undefined,
     Object? text = _undefined,
   }) =>
-      _then(Input_WorkFilterInput._({
+      _then(Input$WorkFilterInput._({
         ..._instance._$data,
         if (categories != _undefined)
           'categories': (categories as List<String>?),
         if (count != _undefined && count != null) 'count': (count as int),
         if (offset != _undefined && offset != null) 'offset': (offset as int),
         if (sort != _undefined && sort != null)
-          'sort': (sort as Input_WorkFilterSortInput),
+          'sort': (sort as Input$WorkFilterSortInput),
         if (text != _undefined) 'text': (text as String?),
       }));
-  CopyWith_Input_WorkFilterSortInput<TRes> get sort {
+  CopyWith$Input$WorkFilterSortInput<TRes> get sort {
     final local$sort = _instance.sort;
-    return CopyWith_Input_WorkFilterSortInput(local$sort, (e) => call(sort: e));
+    return CopyWith$Input$WorkFilterSortInput(local$sort, (e) => call(sort: e));
   }
 }
 
-class _CopyWithStubImpl_Input_WorkFilterInput<TRes>
-    implements CopyWith_Input_WorkFilterInput<TRes> {
-  _CopyWithStubImpl_Input_WorkFilterInput(this._res);
+class _CopyWithStubImpl$Input$WorkFilterInput<TRes>
+    implements CopyWith$Input$WorkFilterInput<TRes> {
+  _CopyWithStubImpl$Input$WorkFilterInput(this._res);
 
   TRes _res;
 
@@ -673,52 +673,52 @@ class _CopyWithStubImpl_Input_WorkFilterInput<TRes>
     List<String>? categories,
     int? count,
     int? offset,
-    Input_WorkFilterSortInput? sort,
+    Input$WorkFilterSortInput? sort,
     String? text,
   }) =>
       _res;
-  CopyWith_Input_WorkFilterSortInput<TRes> get sort =>
-      CopyWith_Input_WorkFilterSortInput.stub(_res);
+  CopyWith$Input$WorkFilterSortInput<TRes> get sort =>
+      CopyWith$Input$WorkFilterSortInput.stub(_res);
 }
 
-class Input_WorkFilterSortInput {
-  factory Input_WorkFilterSortInput({
-    required Enum_FieldSortOrder direction,
-    required Enum_WorkSortField field,
+class Input$WorkFilterSortInput {
+  factory Input$WorkFilterSortInput({
+    required Enum$FieldSortOrder direction,
+    required Enum$WorkSortField field,
   }) =>
-      Input_WorkFilterSortInput._({
+      Input$WorkFilterSortInput._({
         r'direction': direction,
         r'field': field,
       });
 
-  Input_WorkFilterSortInput._(this._$data);
+  Input$WorkFilterSortInput._(this._$data);
 
-  factory Input_WorkFilterSortInput.fromJson(Map<String, dynamic> data) {
+  factory Input$WorkFilterSortInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$direction = data['direction'];
     result$data['direction'] =
-        fromJson_Enum_FieldSortOrder((l$direction as String));
+        fromJson$Enum$FieldSortOrder((l$direction as String));
     final l$field = data['field'];
-    result$data['field'] = fromJson_Enum_WorkSortField((l$field as String));
-    return Input_WorkFilterSortInput._(result$data);
+    result$data['field'] = fromJson$Enum$WorkSortField((l$field as String));
+    return Input$WorkFilterSortInput._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Enum_FieldSortOrder get direction =>
-      (_$data['direction'] as Enum_FieldSortOrder);
-  Enum_WorkSortField get field => (_$data['field'] as Enum_WorkSortField);
+  Enum$FieldSortOrder get direction =>
+      (_$data['direction'] as Enum$FieldSortOrder);
+  Enum$WorkSortField get field => (_$data['field'] as Enum$WorkSortField);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$direction = direction;
-    result$data['direction'] = toJson_Enum_FieldSortOrder(l$direction);
+    result$data['direction'] = toJson$Enum$FieldSortOrder(l$direction);
     final l$field = field;
-    result$data['field'] = toJson_Enum_WorkSortField(l$field);
+    result$data['field'] = toJson$Enum$WorkSortField(l$field);
     return result$data;
   }
 
-  CopyWith_Input_WorkFilterSortInput<Input_WorkFilterSortInput> get copyWith =>
-      CopyWith_Input_WorkFilterSortInput(
+  CopyWith$Input$WorkFilterSortInput<Input$WorkFilterSortInput> get copyWith =>
+      CopyWith$Input$WorkFilterSortInput(
         this,
         (i) => i,
       );
@@ -727,7 +727,7 @@ class Input_WorkFilterSortInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Input_WorkFilterSortInput) ||
+    if (!(other is Input$WorkFilterSortInput) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -755,31 +755,31 @@ class Input_WorkFilterSortInput {
   }
 }
 
-abstract class CopyWith_Input_WorkFilterSortInput<TRes> {
-  factory CopyWith_Input_WorkFilterSortInput(
-    Input_WorkFilterSortInput instance,
-    TRes Function(Input_WorkFilterSortInput) then,
-  ) = _CopyWithImpl_Input_WorkFilterSortInput;
+abstract class CopyWith$Input$WorkFilterSortInput<TRes> {
+  factory CopyWith$Input$WorkFilterSortInput(
+    Input$WorkFilterSortInput instance,
+    TRes Function(Input$WorkFilterSortInput) then,
+  ) = _CopyWithImpl$Input$WorkFilterSortInput;
 
-  factory CopyWith_Input_WorkFilterSortInput.stub(TRes res) =
-      _CopyWithStubImpl_Input_WorkFilterSortInput;
+  factory CopyWith$Input$WorkFilterSortInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$WorkFilterSortInput;
 
   TRes call({
-    Enum_FieldSortOrder? direction,
-    Enum_WorkSortField? field,
+    Enum$FieldSortOrder? direction,
+    Enum$WorkSortField? field,
   });
 }
 
-class _CopyWithImpl_Input_WorkFilterSortInput<TRes>
-    implements CopyWith_Input_WorkFilterSortInput<TRes> {
-  _CopyWithImpl_Input_WorkFilterSortInput(
+class _CopyWithImpl$Input$WorkFilterSortInput<TRes>
+    implements CopyWith$Input$WorkFilterSortInput<TRes> {
+  _CopyWithImpl$Input$WorkFilterSortInput(
     this._instance,
     this._then,
   );
 
-  final Input_WorkFilterSortInput _instance;
+  final Input$WorkFilterSortInput _instance;
 
-  final TRes Function(Input_WorkFilterSortInput) _then;
+  final TRes Function(Input$WorkFilterSortInput) _then;
 
   static const _undefined = {};
 
@@ -787,69 +787,69 @@ class _CopyWithImpl_Input_WorkFilterSortInput<TRes>
     Object? direction = _undefined,
     Object? field = _undefined,
   }) =>
-      _then(Input_WorkFilterSortInput._({
+      _then(Input$WorkFilterSortInput._({
         ..._instance._$data,
         if (direction != _undefined && direction != null)
-          'direction': (direction as Enum_FieldSortOrder),
+          'direction': (direction as Enum$FieldSortOrder),
         if (field != _undefined && field != null)
-          'field': (field as Enum_WorkSortField),
+          'field': (field as Enum$WorkSortField),
       }));
 }
 
-class _CopyWithStubImpl_Input_WorkFilterSortInput<TRes>
-    implements CopyWith_Input_WorkFilterSortInput<TRes> {
-  _CopyWithStubImpl_Input_WorkFilterSortInput(this._res);
+class _CopyWithStubImpl$Input$WorkFilterSortInput<TRes>
+    implements CopyWith$Input$WorkFilterSortInput<TRes> {
+  _CopyWithStubImpl$Input$WorkFilterSortInput(this._res);
 
   TRes _res;
 
   call({
-    Enum_FieldSortOrder? direction,
-    Enum_WorkSortField? field,
+    Enum$FieldSortOrder? direction,
+    Enum$WorkSortField? field,
   }) =>
       _res;
 }
 
-enum Enum_FieldSortOrder { ASC, DESC, $unknown }
+enum Enum$FieldSortOrder { ASC, DESC, $unknown }
 
-String toJson_Enum_FieldSortOrder(Enum_FieldSortOrder e) {
+String toJson$Enum$FieldSortOrder(Enum$FieldSortOrder e) {
   switch (e) {
-    case Enum_FieldSortOrder.ASC:
+    case Enum$FieldSortOrder.ASC:
       return r'ASC';
-    case Enum_FieldSortOrder.DESC:
+    case Enum$FieldSortOrder.DESC:
       return r'DESC';
-    case Enum_FieldSortOrder.$unknown:
+    case Enum$FieldSortOrder.$unknown:
       return r'$unknown';
   }
 }
 
-Enum_FieldSortOrder fromJson_Enum_FieldSortOrder(String value) {
+Enum$FieldSortOrder fromJson$Enum$FieldSortOrder(String value) {
   switch (value) {
     case r'ASC':
-      return Enum_FieldSortOrder.ASC;
+      return Enum$FieldSortOrder.ASC;
     case r'DESC':
-      return Enum_FieldSortOrder.DESC;
+      return Enum$FieldSortOrder.DESC;
     default:
-      return Enum_FieldSortOrder.$unknown;
+      return Enum$FieldSortOrder.$unknown;
   }
 }
 
-enum Enum_WorkSortField { UPDATED_AT, $unknown }
+enum Enum$WorkSortField { UPDATED_AT, $unknown }
 
-String toJson_Enum_WorkSortField(Enum_WorkSortField e) {
+String toJson$Enum$WorkSortField(Enum$WorkSortField e) {
   switch (e) {
-    case Enum_WorkSortField.UPDATED_AT:
+    case Enum$WorkSortField.UPDATED_AT:
       return r'UPDATED_AT';
-    case Enum_WorkSortField.$unknown:
+    case Enum$WorkSortField.$unknown:
       return r'$unknown';
   }
 }
 
-Enum_WorkSortField fromJson_Enum_WorkSortField(String value) {
+Enum$WorkSortField fromJson$Enum$WorkSortField(String value) {
   switch (value) {
     case r'UPDATED_AT':
-      return Enum_WorkSortField.UPDATED_AT;
+      return Enum$WorkSortField.UPDATED_AT;
     default:
-      return Enum_WorkSortField.$unknown;
+      return Enum$WorkSortField.$unknown;
   }
 }
 

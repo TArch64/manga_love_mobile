@@ -44,7 +44,7 @@ class SignInScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 30),
-            child: Mutation_SignIn_Widget(
+            child: Mutation$SignIn$Widget(
               builder: (runMutation, _) {
                 return Consumer<AuthModel>(builder: (context, authModel, child) {
                   return ElevatedButton(
@@ -64,10 +64,10 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
-  void _signIn(BuildContext context, AuthModel authModel, RunMutation_Mutation_SignIn runMutation) async {
+  void _signIn(BuildContext context, AuthModel authModel, RunMutation$Mutation$SignIn runMutation) async {
     if (!_formKey.currentState!.validate()) return;
 
-    var mutation = runMutation(Variables_Mutation_SignIn(
+    var mutation = runMutation(Variables$Mutation$SignIn(
       username: _formKey.currentState!.username,
       password: _formKey.currentState!.password,
     ));
