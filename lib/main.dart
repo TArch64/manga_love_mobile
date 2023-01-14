@@ -66,6 +66,13 @@ class MyApp extends StatelessWidget {
     textButtonTheme: TextButtonThemeData(
       style: _buildButtonStyle(),
     ),
+    cardTheme: const CardTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(4)),
+      ),
+      elevation: 1,
+      margin: EdgeInsets.zero
+    ),
   );
 
   List<NavigatorRoute> get _routes {
