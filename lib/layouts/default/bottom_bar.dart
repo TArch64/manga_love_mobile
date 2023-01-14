@@ -33,23 +33,23 @@ class BottomBar extends StatelessWidget {
   }
 
   List<Widget> _buildMenu(AuthModel authModel) {
-    return authModel.isSignedIn ? _buildSignedInNav() : _buildSignedOutNav();
+    return authModel.isSignedIn ? _signedInNav : _signedOutNav;
   }
 
-  List<Widget> _buildSignedInNav() {
+  List<Widget> get _signedInNav {
     return [
       const BottomBarItem(
         route: '/works',
         inactive: Icons.home_outlined,
         active: Icons.home,
       ),
-      _buildNavSpacing(),
+      _navSpacing,
       const BottomBarItem(
         route: '/library',
         inactive: Icons.bookmark_outline,
         active: Icons.bookmark,
       ),
-      _buildNavSpacing(),
+      _navSpacing,
       const BottomBarItem(
         route: '/profile',
         inactive: Icons.person_outlined,
@@ -58,14 +58,14 @@ class BottomBar extends StatelessWidget {
     ];
   }
 
-  List<Widget> _buildSignedOutNav() {
+  List<Widget> get _signedOutNav {
     return [
       const BottomBarItem(
         route: '/works',
         inactive: Icons.home_outlined,
         active: Icons.home,
       ),
-      _buildNavSpacing(),
+      _navSpacing,
       const BottomBarItem(
         route: '/sign-in',
         inactive: Icons.login_outlined,
@@ -74,7 +74,7 @@ class BottomBar extends StatelessWidget {
     ];
   }
 
-  Widget _buildNavSpacing() {
+  Widget get _navSpacing {
     return const SizedBox(width: 50);
   }
 }

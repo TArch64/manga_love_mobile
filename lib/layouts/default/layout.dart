@@ -35,6 +35,7 @@ class DefaultLayout extends StatelessWidget {
     if (title == null) return null;
 
     return Heading(title!, style: const TextStyle(
+      fontWeight: FontWeight.w700,
       fontSize: 16,
       height: 1.25
     ));

@@ -4,7 +4,7 @@ import 'package:manga_love_mobile/common/form/loading_elevated_button.dart';
 import 'package:manga_love_mobile/common/graphql_utils.dart';
 import 'package:manga_love_mobile/common/text/heading.dart';
 import 'package:manga_love_mobile/layouts/auth/layout.dart';
-import 'package:manga_love_mobile/screens/sign-in/graphql/sign_in.graphql.dart';
+import 'package:manga_love_mobile/screens/sign-in/api/sign_in.graphql.dart';
 import 'package:manga_love_mobile/screens/sign-in/sign_in_form.dart';
 import 'package:manga_love_mobile/state/auth_model.dart';
 import 'package:provider/provider.dart';

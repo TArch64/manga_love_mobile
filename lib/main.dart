@@ -14,17 +14,19 @@ import 'package:manga_love_mobile/screens/works/works_screen.dart';
 
 void main() async {
   await initHiveForFlutter();
+  var authModel = await AuthModel.init();
 
   runApp(MyApp(
     graphQL: ValueNotifier(
       GraphQLClient(
-        link: HttpLink(Env.apiEndpoint).concat(AuthLink(
-            getToken: () => '' //UserPreferences.instance.authToken
-        )),
+        link: Link.from([
+          AuthLink(getToken: () => authModel.authToken),
+          HttpLink(Env.apiEndpoint),
+        ]),
         cache: GraphQLCache(store: HiveStore()),
       ),
     ),
-    authModel: await AuthModel.init(),
+    authModel: authModel,
   ));
 }
 
