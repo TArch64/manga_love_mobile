@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:manga_love_mobile/common/form/loading_elevated_button.dart';
 import 'package:manga_love_mobile/common/graphql_utils.dart';
 import 'package:manga_love_mobile/common/text/heading.dart';
 import 'package:manga_love_mobile/layouts/auth/layout.dart';
@@ -47,7 +48,7 @@ class SignInScreen extends StatelessWidget {
             child: Mutation$SignIn$Widget(
               builder: (runMutation, _) {
                 return Consumer<AuthModel>(builder: (context, authModel, child) {
-                  return ElevatedButton(
+                  return LoadingElevatedButton(
                     onPressed: () => _signIn(context, authModel, runMutation),
                     child: const Text('Sign in'),
                   );
@@ -64,7 +65,7 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
-  void _signIn(BuildContext context, AuthModel authModel, RunMutation$Mutation$SignIn runMutation) async {
+  Future<void> _signIn(BuildContext context, AuthModel authModel, RunMutation$Mutation$SignIn runMutation) async {
     if (!_formKey.currentState!.validate()) return;
 
     var mutation = runMutation(Variables$Mutation$SignIn(
