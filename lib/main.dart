@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:manga_love_mobile/screens/sign-up/sign_up_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:manga_love_mobile/app_theme_colors.dart';
-import 'package:manga_love_mobile/env.dart';
-import 'package:manga_love_mobile/screens/library/library_screen.dart';
-import 'package:manga_love_mobile/navigator/navigator_route.dart';
-import 'package:manga_love_mobile/navigator/navigator_router.dart';
-import 'package:manga_love_mobile/state/auth_model.dart';
-import 'package:manga_love_mobile/screens/profile/profile_screen.dart';
-import 'package:manga_love_mobile/screens/sign-in/sign_in_screen.dart';
-import 'package:manga_love_mobile/screens/works/works_screen.dart';
+
+import 'screens/sign-up/sign_up_screen.dart';
+import 'app_theme_colors.dart';
+import 'env.dart';
+import 'screens/library/library_screen.dart';
+import 'navigator/navigator_route.dart';
+import 'navigator/navigator_router.dart';
+import 'screens/works/works_screen.dart';
+import 'state/auth_model.dart';
+import 'screens/profile/profile_screen.dart';
+import 'screens/sign-in/sign_in_screen.dart';
 
 void main() async {
   await initHiveForFlutter();

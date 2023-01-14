@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:manga_love_mobile/common/form/field_validator.dart';
-import 'package:manga_love_mobile/common/form/outlined_input_decoration.dart';
-import 'package:manga_love_mobile/common/form/password_form_field.dart';
+
+import '../../common/form/field_validator.dart';
+import '../../common/form/outlined_input_decoration.dart';
+import '../../common/form/password_form_field.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});

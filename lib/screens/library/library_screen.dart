@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:manga_love_mobile/layouts/default/layout.dart';
+
+import '../../layouts/default/layout.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
