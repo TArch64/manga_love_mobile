@@ -16,16 +16,16 @@ class BottomBar extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-              color: Color.fromARGB(5, 0, 0, 0),
-              offset: Offset(0, -2),
-              blurRadius: 50,
-              spreadRadius: 50
+            color: Color.fromARGB(5, 0, 0, 0),
+            offset: Offset(0, -2),
+            blurRadius: 50,
+            spreadRadius: 50
           ),
         ],
       ),
       child: Consumer<AuthModel>(builder: (context, authModel, child) {
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: _buildMenu(authModel),
         );
       }),
@@ -33,36 +33,48 @@ class BottomBar extends StatelessWidget {
   }
 
   List<Widget> _buildMenu(AuthModel authModel) {
-    if (authModel.isSignedIn) {
-      return const [
-        BottomBarItem(
-          route: '/works',
-          inactive: Icons.home_outlined,
-          active: Icons.home,
-        ),
-        BottomBarItem(
-          route: '/library',
-          inactive: Icons.bookmark_outline,
-          active: Icons.bookmark,
-        ),
-        BottomBarItem(
-          route: '/profile',
-          inactive: Icons.person_outlined,
-          active: Icons.person,
-        ),
-      ];
-    }
-    return const [
-      BottomBarItem(
+    return authModel.isSignedIn ? _buildSignedInNav() : _buildSignedOutNav();
+  }
+
+  List<Widget> _buildSignedInNav() {
+    return [
+      const BottomBarItem(
         route: '/works',
         inactive: Icons.home_outlined,
         active: Icons.home,
       ),
-      BottomBarItem(
+      _buildNavSpacing(),
+      const BottomBarItem(
+        route: '/library',
+        inactive: Icons.bookmark_outline,
+        active: Icons.bookmark,
+      ),
+      _buildNavSpacing(),
+      const BottomBarItem(
+        route: '/profile',
+        inactive: Icons.person_outlined,
+        active: Icons.person,
+      ),
+    ];
+  }
+
+  List<Widget> _buildSignedOutNav() {
+    return [
+      const BottomBarItem(
+        route: '/works',
+        inactive: Icons.home_outlined,
+        active: Icons.home,
+      ),
+      _buildNavSpacing(),
+      const BottomBarItem(
         route: '/sign-in',
         inactive: Icons.login_outlined,
         active: Icons.login,
       ),
     ];
+  }
+
+  Widget _buildNavSpacing() {
+    return const SizedBox(width: 50);
   }
 }
