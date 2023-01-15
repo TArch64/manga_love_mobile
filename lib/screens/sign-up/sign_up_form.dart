@@ -32,6 +32,7 @@ class SignUpFormState extends State<SignUpForm> {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: FieldValidator.email(),
               controller: _emailController,
+              autocorrect: false,
             ),
           ),
           Container(

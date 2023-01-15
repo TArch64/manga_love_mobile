@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../../../common/graphql_utils.dart';
+import '../api/update_email.graphql.dart';
 import '../api/current_user.graphql.dart';
-import '../api/update_username.graphql.dart';
 import '../profile_card.dart';
-import 'username_editor.dart';
+import 'email_editor.dart';
 
-class UsernameCard extends StatelessWidget {
-  const UsernameCard({
+class EmailCard extends StatelessWidget {
+  const EmailCard({
     super.key,
     required this.user,
   });
@@ -17,46 +17,46 @@ class UsernameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Mutation$UpdateUsername$Widget(builder: (runMutation, _) {
+    return Mutation$UpdateEmail$Widget(builder: (runMutation, _) {
       return ProfileCard(
         title: 'Name',
-        content: Text(user.username, style: const TextStyle(
+        content: Text(user.email, style: const TextStyle(
           fontWeight: FontWeight.w600,
           height: 1.42
         )),
         onTap: () async {
-          var username = await _editUsername(context);
+          var email = await _editEmail(context);
 
-          if (username != null && username != user.username) {
-            _updateUsername(context, username, runMutation);
+          if (email != null && email != user.email) {
+            _updateEmail(context, email, runMutation);
           }
         },
       );
     });
   }
 
-  Future<String?> _editUsername(BuildContext context) {
+  Future<String?> _editEmail(BuildContext context) {
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder: (context) => SizedBox(
         height: 300,
-        child: UsernameEditor(
-          username: user.username,
-          onSubmit: (String username) => Navigator.pop(context, username),
+        child: EmailEditor(
+          email: user.email,
+          onSubmit: (String email) => Navigator.pop(context, email),
           onCancel: () => Navigator.pop(context, null),
         ),
       ),
     );
   }
 
-  void _updateUsername(BuildContext context, String username, RunMutation$Mutation$UpdateUsername runMutation) async {
-    var variables = Variables$Mutation$UpdateUsername(username: username);
+  void _updateEmail(BuildContext context, String email, RunMutation$Mutation$UpdateEmail runMutation) async {
+    var variables = Variables$Mutation$UpdateEmail(email: email);
     var mutation = runMutation(variables, optimisticResult: {
       'currentUserUpdate': {
         '__typename': user.$__typename,
         'id': user.id,
-        'username': username
+        'email': email
       }
     });
     var result = await mutation.networkResult!;
@@ -71,8 +71,8 @@ class UsernameCard extends StatelessWidget {
   }
 
   String _getErrorMessage(String code) {
-    if (code == 'auth-username-used') {
-      return 'This username already taken';
+    if (code == 'auth-email-used') {
+      return 'This e-mail already taken';
     }
     return 'Something went wrong';
   }

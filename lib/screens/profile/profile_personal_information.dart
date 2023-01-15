@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'api/current_user.graphql.dart';
 import 'username/username_card.dart';
-import 'profile_email.dart';
+import 'email/email_card.dart';
 
 class ProfilePersonalInformation extends StatelessWidget {
   const ProfilePersonalInformation({super.key, required this.user});
@@ -27,7 +27,7 @@ class ProfilePersonalInformation extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 15),
           child: UsernameCard(user: user),
         ),
-        ProfileEmail(user: user)
+        EmailCard(user: user)
       ],
     );
   }

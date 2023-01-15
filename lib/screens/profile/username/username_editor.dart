@@ -7,25 +7,24 @@ import '../../../common/form/outlined_input_decoration.dart';
 class UsernameEditor extends StatefulWidget {
   const UsernameEditor({
     super.key,
-    required this.initialUsername,
+    required this.username,
     required this.onSubmit,
     required this.onCancel,
   });
 
-  final String initialUsername;
+  final String username;
   final void Function(String username) onSubmit;
   final VoidCallback onCancel;
 
   @override
-  State<StatefulWidget> createState() => _UsernameEditorState(username: initialUsername);
+  State<StatefulWidget> createState() => _UsernameEditorState(username: username);
 }
 
 class _UsernameEditorState extends State<UsernameEditor> {
-  _UsernameEditorState({ required String username }) {
+  _UsernameEditorState({ required String username }):
     _usernameController = TextEditingController(text: username);
-  }
 
-  late TextEditingController _usernameController;
+  final TextEditingController _usernameController;
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +46,12 @@ class _UsernameEditorState extends State<UsernameEditor> {
                   FieldValidator.maxLength(255),
                 ]),
                 controller: _usernameController,
+                autofocus: true,
               ),
             ),
           ],
-        )
-      )
+        ),
+      ),
     );
   }
 }
