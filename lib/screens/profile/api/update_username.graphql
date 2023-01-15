@@ -1,0 +1,7 @@
+mutation UpdateUsername($username: String!) {
+    currentUserUpdate(input: { username: $username }) {
+        id
+        username
+        __typename
+    }
+}

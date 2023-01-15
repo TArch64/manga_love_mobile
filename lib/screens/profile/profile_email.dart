@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'api/current_user.graphql.dart';
 import 'profile_card.dart';
 
 class ProfileEmail extends StatelessWidget {
-  const ProfileEmail({super.key, required this.email});
+  const ProfileEmail({super.key, required this.user});
 
-  final String email;
+  final Query$CurrentUser$currentUser user;
 
   @override
   Widget build(BuildContext context) {
     return ProfileCard(
       title: 'Email',
-      content: Text(email, style: const TextStyle(
+      content: Text(user.email, style: const TextStyle(
         fontWeight: FontWeight.w600,
         height: 1.42
       ))

@@ -462,6 +462,195 @@ class _CopyWithStubImpl$Input$SignUpInput<TRes>
       _res;
 }
 
+class Input$UpdateUserInput {
+  factory Input$UpdateUserInput({
+    String? avatar,
+    String? email,
+    String? password,
+    String? username,
+  }) =>
+      Input$UpdateUserInput._({
+        if (avatar != null) r'avatar': avatar,
+        if (email != null) r'email': email,
+        if (password != null) r'password': password,
+        if (username != null) r'username': username,
+      });
+
+  Input$UpdateUserInput._(this._$data);
+
+  factory Input$UpdateUserInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('avatar')) {
+      final l$avatar = data['avatar'];
+      result$data['avatar'] = (l$avatar as String?);
+    }
+    if (data.containsKey('email')) {
+      final l$email = data['email'];
+      result$data['email'] = (l$email as String?);
+    }
+    if (data.containsKey('password')) {
+      final l$password = data['password'];
+      result$data['password'] = (l$password as String?);
+    }
+    if (data.containsKey('username')) {
+      final l$username = data['username'];
+      result$data['username'] = (l$username as String?);
+    }
+    return Input$UpdateUserInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get avatar => (_$data['avatar'] as String?);
+  String? get email => (_$data['email'] as String?);
+  String? get password => (_$data['password'] as String?);
+  String? get username => (_$data['username'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('avatar')) {
+      final l$avatar = avatar;
+      result$data['avatar'] = l$avatar;
+    }
+    if (_$data.containsKey('email')) {
+      final l$email = email;
+      result$data['email'] = l$email;
+    }
+    if (_$data.containsKey('password')) {
+      final l$password = password;
+      result$data['password'] = l$password;
+    }
+    if (_$data.containsKey('username')) {
+      final l$username = username;
+      result$data['username'] = l$username;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$UpdateUserInput<Input$UpdateUserInput> get copyWith =>
+      CopyWith$Input$UpdateUserInput(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$UpdateUserInput) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$avatar = avatar;
+    final lOther$avatar = other.avatar;
+    if (_$data.containsKey('avatar') != other._$data.containsKey('avatar')) {
+      return false;
+    }
+    if (l$avatar != lOther$avatar) {
+      return false;
+    }
+    final l$email = email;
+    final lOther$email = other.email;
+    if (_$data.containsKey('email') != other._$data.containsKey('email')) {
+      return false;
+    }
+    if (l$email != lOther$email) {
+      return false;
+    }
+    final l$password = password;
+    final lOther$password = other.password;
+    if (_$data.containsKey('password') !=
+        other._$data.containsKey('password')) {
+      return false;
+    }
+    if (l$password != lOther$password) {
+      return false;
+    }
+    final l$username = username;
+    final lOther$username = other.username;
+    if (_$data.containsKey('username') !=
+        other._$data.containsKey('username')) {
+      return false;
+    }
+    if (l$username != lOther$username) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$avatar = avatar;
+    final l$email = email;
+    final l$password = password;
+    final l$username = username;
+    return Object.hashAll([
+      _$data.containsKey('avatar') ? l$avatar : const {},
+      _$data.containsKey('email') ? l$email : const {},
+      _$data.containsKey('password') ? l$password : const {},
+      _$data.containsKey('username') ? l$username : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$UpdateUserInput<TRes> {
+  factory CopyWith$Input$UpdateUserInput(
+    Input$UpdateUserInput instance,
+    TRes Function(Input$UpdateUserInput) then,
+  ) = _CopyWithImpl$Input$UpdateUserInput;
+
+  factory CopyWith$Input$UpdateUserInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$UpdateUserInput;
+
+  TRes call({
+    String? avatar,
+    String? email,
+    String? password,
+    String? username,
+  });
+}
+
+class _CopyWithImpl$Input$UpdateUserInput<TRes>
+    implements CopyWith$Input$UpdateUserInput<TRes> {
+  _CopyWithImpl$Input$UpdateUserInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$UpdateUserInput _instance;
+
+  final TRes Function(Input$UpdateUserInput) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? avatar = _undefined,
+    Object? email = _undefined,
+    Object? password = _undefined,
+    Object? username = _undefined,
+  }) =>
+      _then(Input$UpdateUserInput._({
+        ..._instance._$data,
+        if (avatar != _undefined) 'avatar': (avatar as String?),
+        if (email != _undefined) 'email': (email as String?),
+        if (password != _undefined) 'password': (password as String?),
+        if (username != _undefined) 'username': (username as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$UpdateUserInput<TRes>
+    implements CopyWith$Input$UpdateUserInput<TRes> {
+  _CopyWithStubImpl$Input$UpdateUserInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? avatar,
+    String? email,
+    String? password,
+    String? username,
+  }) =>
+      _res;
+}
+
 class Input$WorkFilterInput {
   factory Input$WorkFilterInput({
     List<String>? categories,

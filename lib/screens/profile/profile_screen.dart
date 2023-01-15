@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../layouts/default/layout.dart';
@@ -16,7 +17,8 @@ class ProfileScreen extends StatelessWidget {
       title: 'Profile',
       toolbarRightAction: _logoutAction,
       body: Query$CurrentUser$Widget(builder: (result, {fetchMore, refetch}) {
-        var user = result.parsedData!.currentUser;
+        var user = result.parsedData?.currentUser;
+        if (user == null) return Container();
 
         return Container(
           padding: const EdgeInsets.only(
@@ -42,13 +44,16 @@ class ProfileScreen extends StatelessWidget {
 
   Widget get _logoutAction {
     return Consumer<AuthModel>(builder: (context, authModel, child) {
-      return IconButton(
+      return GraphQLConsumer(builder: (GraphQLClient client) {
+        return IconButton(
           onPressed: () async {
             await authModel.signOut();
+            client.cache.store.reset();
             await Navigator.pushReplacementNamed(context, '/works');
           },
           icon: const Icon(Icons.logout_outlined)
-      );
+        );
+      });
     });
   }
 }

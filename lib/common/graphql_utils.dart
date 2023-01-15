@@ -9,6 +9,12 @@ abstract class GraphQLUtils {
   }
 
   static String _getErrorCode(GraphQLError error) {
-    return error.extensions!['exception']['thrownValue']['message'] as String;
+    var exception = error.extensions!;
+
+    if (exception['exception'] == null) {
+      return exception['code'].toString().toLowerCase();
+    }
+
+    return exception['exception']['thrownValue']['message'].toString();
   }
 }

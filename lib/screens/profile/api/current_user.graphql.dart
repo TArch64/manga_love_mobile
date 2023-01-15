@@ -149,6 +149,13 @@ const documentNodeQueryCurrentUser = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'username'),
             alias: null,
             arguments: [],
@@ -330,6 +337,7 @@ class Query$CurrentUser$Widget
 
 class Query$CurrentUser$currentUser {
   Query$CurrentUser$currentUser({
+    required this.id,
     required this.username,
     required this.email,
     required this.avatar,
@@ -337,11 +345,13 @@ class Query$CurrentUser$currentUser {
   });
 
   factory Query$CurrentUser$currentUser.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
     final l$username = json['username'];
     final l$email = json['email'];
     final l$avatar = json['avatar'];
     final l$$__typename = json['__typename'];
     return Query$CurrentUser$currentUser(
+      id: (l$id as String),
       username: (l$username as String),
       email: (l$email as String),
       avatar: Query$CurrentUser$currentUser$avatar.fromJson(
@@ -349,6 +359,8 @@ class Query$CurrentUser$currentUser {
       $__typename: (l$$__typename as String),
     );
   }
+
+  final String id;
 
   final String username;
 
@@ -360,6 +372,8 @@ class Query$CurrentUser$currentUser {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
     final l$username = username;
     _resultData['username'] = l$username;
     final l$email = email;
@@ -373,11 +387,13 @@ class Query$CurrentUser$currentUser {
 
   @override
   int get hashCode {
+    final l$id = id;
     final l$username = username;
     final l$email = email;
     final l$avatar = avatar;
     final l$$__typename = $__typename;
     return Object.hashAll([
+      l$id,
       l$username,
       l$email,
       l$avatar,
@@ -392,6 +408,11 @@ class Query$CurrentUser$currentUser {
     }
     if (!(other is Query$CurrentUser$currentUser) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
       return false;
     }
     final l$username = username;
@@ -437,6 +458,7 @@ abstract class CopyWith$Query$CurrentUser$currentUser<TRes> {
       _CopyWithStubImpl$Query$CurrentUser$currentUser;
 
   TRes call({
+    String? id,
     String? username,
     String? email,
     Query$CurrentUser$currentUser$avatar? avatar,
@@ -459,12 +481,14 @@ class _CopyWithImpl$Query$CurrentUser$currentUser<TRes>
   static const _undefined = {};
 
   TRes call({
+    Object? id = _undefined,
     Object? username = _undefined,
     Object? email = _undefined,
     Object? avatar = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CurrentUser$currentUser(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
         username: username == _undefined || username == null
             ? _instance.username
             : (username as String),
@@ -492,6 +516,7 @@ class _CopyWithStubImpl$Query$CurrentUser$currentUser<TRes>
   TRes _res;
 
   call({
+    String? id,
     String? username,
     String? email,
     Query$CurrentUser$currentUser$avatar? avatar,
