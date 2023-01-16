@@ -1,0 +1,14 @@
+mutation UpdateAvatar($avatar: Upload!) {
+    currentUserUpdate(input: { avatar: $avatar }) {
+        id
+        avatar {
+            id
+            url
+            originalWidth
+            originalHeight
+            status
+            __typename
+        }
+        __typename
+    }
+}

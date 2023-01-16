@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'api/current_user.graphql.dart';
+import 'avatar/avatar_view.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key, required this.user});
@@ -14,7 +15,7 @@ class ProfileHeader extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.only(top: 8),
-          child: Image.network(user.avatar.url, width: 80, height: 80, fit: BoxFit.cover),
+          child: AvatarView(user: user),
         ),
         Container(
           margin: const EdgeInsets.only(left: 20),

@@ -9,3 +9,8 @@ targets:
           scalars:
             UUID:
               type: String
+            Upload:
+              type: MultipartFile
+              fromJsonFunctionName: fileFromJson
+              toJsonFunctionName: fileToJson
+              import: package:manga_love_mobile/graphql_scalars.dart

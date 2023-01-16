@@ -1,7 +1,9 @@
+import 'package:manga_love_mobile/graphql_scalars.dart';
+
 class Input$CreateWorkInput {
   factory Input$CreateWorkInput({
     required List<String> categories,
-    required String illustration,
+    required MultipartFile illustration,
     required String titleEn,
     required String titleUa,
   }) =>
@@ -20,7 +22,7 @@ class Input$CreateWorkInput {
     result$data['categories'] =
         (l$categories as List<dynamic>).map((e) => (e as String)).toList();
     final l$illustration = data['illustration'];
-    result$data['illustration'] = (l$illustration as String);
+    result$data['illustration'] = fileFromJson(l$illustration);
     final l$titleEn = data['titleEn'];
     result$data['titleEn'] = (l$titleEn as String);
     final l$titleUa = data['titleUa'];
@@ -31,7 +33,7 @@ class Input$CreateWorkInput {
   Map<String, dynamic> _$data;
 
   List<String> get categories => (_$data['categories'] as List<String>);
-  String get illustration => (_$data['illustration'] as String);
+  MultipartFile get illustration => (_$data['illustration'] as MultipartFile);
   String get titleEn => (_$data['titleEn'] as String);
   String get titleUa => (_$data['titleUa'] as String);
   Map<String, dynamic> toJson() {
@@ -39,7 +41,7 @@ class Input$CreateWorkInput {
     final l$categories = categories;
     result$data['categories'] = l$categories.map((e) => e).toList();
     final l$illustration = illustration;
-    result$data['illustration'] = l$illustration;
+    result$data['illustration'] = fileToJson(l$illustration);
     final l$titleEn = titleEn;
     result$data['titleEn'] = l$titleEn;
     final l$titleUa = titleUa;
@@ -116,7 +118,7 @@ abstract class CopyWith$Input$CreateWorkInput<TRes> {
 
   TRes call({
     List<String>? categories,
-    String? illustration,
+    MultipartFile? illustration,
     String? titleEn,
     String? titleUa,
   });
@@ -146,7 +148,7 @@ class _CopyWithImpl$Input$CreateWorkInput<TRes>
         if (categories != _undefined && categories != null)
           'categories': (categories as List<String>),
         if (illustration != _undefined && illustration != null)
-          'illustration': (illustration as String),
+          'illustration': (illustration as MultipartFile),
         if (titleEn != _undefined && titleEn != null)
           'titleEn': (titleEn as String),
         if (titleUa != _undefined && titleUa != null)
@@ -162,7 +164,7 @@ class _CopyWithStubImpl$Input$CreateWorkInput<TRes>
 
   call({
     List<String>? categories,
-    String? illustration,
+    MultipartFile? illustration,
     String? titleEn,
     String? titleUa,
   }) =>
@@ -296,7 +298,7 @@ class _CopyWithStubImpl$Input$SignInInput<TRes>
 
 class Input$SignUpInput {
   factory Input$SignUpInput({
-    String? avatar,
+    MultipartFile? avatar,
     required String email,
     required String password,
     required String username,
@@ -314,7 +316,7 @@ class Input$SignUpInput {
     final result$data = <String, dynamic>{};
     if (data.containsKey('avatar')) {
       final l$avatar = data['avatar'];
-      result$data['avatar'] = (l$avatar as String?);
+      result$data['avatar'] = l$avatar == null ? null : fileFromJson(l$avatar);
     }
     final l$email = data['email'];
     result$data['email'] = (l$email as String);
@@ -327,7 +329,7 @@ class Input$SignUpInput {
 
   Map<String, dynamic> _$data;
 
-  String? get avatar => (_$data['avatar'] as String?);
+  MultipartFile? get avatar => (_$data['avatar'] as MultipartFile?);
   String get email => (_$data['email'] as String);
   String get password => (_$data['password'] as String);
   String get username => (_$data['username'] as String);
@@ -335,7 +337,7 @@ class Input$SignUpInput {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('avatar')) {
       final l$avatar = avatar;
-      result$data['avatar'] = l$avatar;
+      result$data['avatar'] = l$avatar == null ? null : fileToJson(l$avatar);
     }
     final l$email = email;
     result$data['email'] = l$email;
@@ -410,7 +412,7 @@ abstract class CopyWith$Input$SignUpInput<TRes> {
       _CopyWithStubImpl$Input$SignUpInput;
 
   TRes call({
-    String? avatar,
+    MultipartFile? avatar,
     String? email,
     String? password,
     String? username,
@@ -438,7 +440,7 @@ class _CopyWithImpl$Input$SignUpInput<TRes>
   }) =>
       _then(Input$SignUpInput._({
         ..._instance._$data,
-        if (avatar != _undefined) 'avatar': (avatar as String?),
+        if (avatar != _undefined) 'avatar': (avatar as MultipartFile?),
         if (email != _undefined && email != null) 'email': (email as String),
         if (password != _undefined && password != null)
           'password': (password as String),
@@ -454,7 +456,7 @@ class _CopyWithStubImpl$Input$SignUpInput<TRes>
   TRes _res;
 
   call({
-    String? avatar,
+    MultipartFile? avatar,
     String? email,
     String? password,
     String? username,
@@ -464,7 +466,7 @@ class _CopyWithStubImpl$Input$SignUpInput<TRes>
 
 class Input$UpdateUserInput {
   factory Input$UpdateUserInput({
-    String? avatar,
+    MultipartFile? avatar,
     String? email,
     String? password,
     String? username,
@@ -482,7 +484,7 @@ class Input$UpdateUserInput {
     final result$data = <String, dynamic>{};
     if (data.containsKey('avatar')) {
       final l$avatar = data['avatar'];
-      result$data['avatar'] = (l$avatar as String?);
+      result$data['avatar'] = l$avatar == null ? null : fileFromJson(l$avatar);
     }
     if (data.containsKey('email')) {
       final l$email = data['email'];
@@ -501,7 +503,7 @@ class Input$UpdateUserInput {
 
   Map<String, dynamic> _$data;
 
-  String? get avatar => (_$data['avatar'] as String?);
+  MultipartFile? get avatar => (_$data['avatar'] as MultipartFile?);
   String? get email => (_$data['email'] as String?);
   String? get password => (_$data['password'] as String?);
   String? get username => (_$data['username'] as String?);
@@ -509,7 +511,7 @@ class Input$UpdateUserInput {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('avatar')) {
       final l$avatar = avatar;
-      result$data['avatar'] = l$avatar;
+      result$data['avatar'] = l$avatar == null ? null : fileToJson(l$avatar);
     }
     if (_$data.containsKey('email')) {
       final l$email = email;
@@ -601,7 +603,7 @@ abstract class CopyWith$Input$UpdateUserInput<TRes> {
       _CopyWithStubImpl$Input$UpdateUserInput;
 
   TRes call({
-    String? avatar,
+    MultipartFile? avatar,
     String? email,
     String? password,
     String? username,
@@ -629,7 +631,7 @@ class _CopyWithImpl$Input$UpdateUserInput<TRes>
   }) =>
       _then(Input$UpdateUserInput._({
         ..._instance._$data,
-        if (avatar != _undefined) 'avatar': (avatar as String?),
+        if (avatar != _undefined) 'avatar': (avatar as MultipartFile?),
         if (email != _undefined) 'email': (email as String?),
         if (password != _undefined) 'password': (password as String?),
         if (username != _undefined) 'username': (username as String?),
@@ -643,7 +645,7 @@ class _CopyWithStubImpl$Input$UpdateUserInput<TRes>
   TRes _res;
 
   call({
-    String? avatar,
+    MultipartFile? avatar,
     String? email,
     String? password,
     String? username,

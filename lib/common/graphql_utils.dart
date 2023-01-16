@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:http_parser/http_parser.dart';
+import 'package:mime/mime.dart';
+
+import '../graphql_scalars.dart';
 
 abstract class GraphQLUtils {
   static List<String> getErrorCodes(QueryResult result) {
@@ -27,5 +32,14 @@ abstract class GraphQLUtils {
     }
 
     return exception['exception']['thrownValue']['message'].toString();
+  }
+
+  static Future<MultipartFile> xFileToMultipart(XFile file) async {
+    return MultipartFile.fromBytes(
+      "",
+      await file.readAsBytes(),
+      filename: file.name,
+      contentType: MediaType.parse(lookupMimeType(file.path)!),
+    );
   }
 }
