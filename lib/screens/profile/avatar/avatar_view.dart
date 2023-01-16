@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:manga_love_mobile/common/graphql_utils.dart';
 
@@ -14,7 +15,7 @@ class AvatarView extends StatelessWidget {
 
   final Query$CurrentUser$currentUser user;
   final picker = ImagePicker();
-
+  final cropper = ImageCropper();
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +24,34 @@ class AvatarView extends StatelessWidget {
         onTap: () async {
           final file = await picker.pickImage(source: ImageSource.gallery);
 
-          if (file != null) await _updateAvatar(context, runMutation, file);
+          if (file != null) {
+            final cropped = await _cropAvatar(file);
+            await _updateAvatar(context, runMutation, cropped);
+          }
         },
         child: Image.network(user.avatar.url, width: 80, height: 80, fit: BoxFit.cover),
       );
     });
+  }
+
+  Future<XFile> _cropAvatar(XFile file) async {
+    final cropped = await cropper.cropImage(
+      sourcePath: file.path,
+      aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+      aspectRatioPresets: [],
+      uiSettings: [
+        AndroidUiSettings(),
+        IOSUiSettings(
+          aspectRatioLockEnabled: true,
+          aspectRatioPickerButtonHidden: true,
+        ),
+      ],
+    );
+    return XFile.fromData(await cropped!.readAsBytes(),
+      path: file.path,
+      name: file.name,
+      lastModified: DateTime.now(),
+    );
   }
 
   Future<void> _updateAvatar(BuildContext context, RunMutation$Mutation$UpdateAvatar runMutation, XFile avatar) async {
