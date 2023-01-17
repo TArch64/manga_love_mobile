@@ -3,6 +3,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:manga_love_mobile/common/graphql_utils.dart';
+import 'package:manga_love_mobile/screens/profile/avatar/avatar_source_menu.dart';
 
 import '../api/update_avatar.graphql.dart';
 import '../api/current_user.graphql.dart';
@@ -20,9 +21,12 @@ class AvatarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Mutation$UpdateAvatar$Widget(builder: (runMutation, _) {
-      return GestureDetector(
-        onTap: () async {
-          final file = await picker.pickImage(source: ImageSource.gallery);
+      return AvatarSourceMenu(
+        onSelected: (source) async {
+          final file = await picker.pickImage(
+              source: source,
+              requestFullMetadata: false,
+          );
 
           if (file != null) {
             final cropped = await _cropAvatar(file);

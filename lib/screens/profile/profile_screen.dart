@@ -6,7 +6,9 @@ import '../../layouts/default/layout.dart';
 import '../../state/auth_model.dart';
 import 'api/current_user.graphql.dart';
 import 'profile_header.dart';
-import 'profile_personal_information.dart';
+import 'profile_section_title.dart';
+import 'username/username_card.dart';
+import 'email/email_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -34,7 +36,18 @@ class ProfileScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 20),
                 child: ProfileHeader(user: user),
               ),
-              ProfilePersonalInformation(user: user),
+              Container(
+                margin: const EdgeInsets.only(bottom: 15),
+                child: const ProfileSectionTitle(text: 'Personal Information'),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 15),
+                child: UsernameCard(user: user),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 15),
+                child:  EmailCard(user: user),
+              ),
             ],
           ),
         );
