@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:manga_love_mobile/screens/profile/password/password_card.dart';
 import 'package:provider/provider.dart';
 
 import '../../layouts/default/layout.dart';
@@ -45,9 +46,14 @@ class ProfileScreen extends StatelessWidget {
                 child: UsernameCard(user: user),
               ),
               Container(
-                margin: const EdgeInsets.only(bottom: 15),
+                margin: const EdgeInsets.only(bottom: 40),
                 child:  EmailCard(user: user),
               ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 15),
+                child: const ProfileSectionTitle(text: 'Password'),
+              ),
+              PasswordCard(user: user),
             ],
           ),
         );

@@ -19,7 +19,7 @@ class EmailCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Mutation$UpdateEmail$Widget(builder: (runMutation, _) {
       return ProfileCard(
-        title: 'Name',
+        title: 'Email',
         content: Text(user.email, style: const TextStyle(
           fontWeight: FontWeight.w600,
           height: 1.42

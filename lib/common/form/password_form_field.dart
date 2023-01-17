@@ -31,6 +31,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
         )
       ),
       obscureText: obscureText,
+      obscuringCharacter: '*',
       autocorrect: false,
       enableSuggestions: false,
       validator: widget.validator,
