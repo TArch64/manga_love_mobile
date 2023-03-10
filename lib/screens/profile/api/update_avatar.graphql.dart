@@ -82,7 +82,7 @@ class _CopyWithImpl$Variables$Mutation$UpdateAvatar<TRes>
 
   final TRes Function(Variables$Mutation$UpdateAvatar) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? avatar = _undefined}) =>
       _then(Variables$Mutation$UpdateAvatar._({
@@ -104,7 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateAvatar<TRes>
 class Mutation$UpdateAvatar {
   Mutation$UpdateAvatar({
     required this.currentUserUpdate,
-    required this.$__typename,
+    this.$__typename = 'Mutation',
   });
 
   factory Mutation$UpdateAvatar.fromJson(Map<String, dynamic> json) {
@@ -197,7 +197,7 @@ class _CopyWithImpl$Mutation$UpdateAvatar<TRes>
 
   final TRes Function(Mutation$UpdateAvatar) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? currentUserUpdate = _undefined,
@@ -361,6 +361,7 @@ class Options$Mutation$UpdateAvatar
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdateAvatar? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$UpdateAvatar? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateAvatar>? update,
@@ -372,7 +373,7 @@ class Options$Mutation$UpdateAvatar
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -406,6 +407,7 @@ class WatchOptions$Mutation$UpdateAvatar
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdateAvatar? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -417,7 +419,7 @@ class WatchOptions$Mutation$UpdateAvatar
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeMutationUpdateAvatar,
           pollInterval: pollInterval,
@@ -453,9 +455,10 @@ Mutation$UpdateAvatar$HookResult useMutation$UpdateAvatar(
   final result = graphql_flutter
       .useMutation(options ?? WidgetOptions$Mutation$UpdateAvatar());
   return Mutation$UpdateAvatar$HookResult(
-    (variables, {optimisticResult}) => result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
       variables.toJson(),
-      optimisticResult: optimisticResult,
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
     result.result,
   );
@@ -473,6 +476,7 @@ class WidgetOptions$Mutation$UpdateAvatar
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdateAvatar? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$UpdateAvatar? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateAvatar>? update,
@@ -483,7 +487,7 @@ class WidgetOptions$Mutation$UpdateAvatar
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -512,6 +516,7 @@ typedef RunMutation$Mutation$UpdateAvatar
     = graphql.MultiSourceResult<Mutation$UpdateAvatar> Function(
   Variables$Mutation$UpdateAvatar, {
   Object? optimisticResult,
+  Mutation$UpdateAvatar? typedOptimisticResult,
 });
 typedef Builder$Mutation$UpdateAvatar = widgets.Widget Function(
   RunMutation$Mutation$UpdateAvatar,
@@ -535,10 +540,12 @@ class Mutation$UpdateAvatar$Widget
             (
               variables, {
               optimisticResult,
+              typedOptimisticResult,
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult: optimisticResult,
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),
@@ -549,7 +556,7 @@ class Mutation$UpdateAvatar$currentUserUpdate {
   Mutation$UpdateAvatar$currentUserUpdate({
     required this.id,
     required this.avatar,
-    required this.$__typename,
+    this.$__typename = 'UserObject',
   });
 
   factory Mutation$UpdateAvatar$currentUserUpdate.fromJson(
@@ -660,7 +667,7 @@ class _CopyWithImpl$Mutation$UpdateAvatar$currentUserUpdate<TRes>
 
   final TRes Function(Mutation$UpdateAvatar$currentUserUpdate) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -706,7 +713,7 @@ class Mutation$UpdateAvatar$currentUserUpdate$avatar {
     required this.originalWidth,
     required this.originalHeight,
     required this.status,
-    required this.$__typename,
+    this.$__typename = 'IllustrationObject',
   });
 
   factory Mutation$UpdateAvatar$currentUserUpdate$avatar.fromJson(
@@ -858,7 +865,7 @@ class _CopyWithImpl$Mutation$UpdateAvatar$currentUserUpdate$avatar<TRes>
 
   final TRes Function(Mutation$UpdateAvatar$currentUserUpdate$avatar) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,

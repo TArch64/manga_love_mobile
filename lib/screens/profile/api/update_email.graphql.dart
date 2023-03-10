@@ -81,7 +81,7 @@ class _CopyWithImpl$Variables$Mutation$UpdateEmail<TRes>
 
   final TRes Function(Variables$Mutation$UpdateEmail) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? email = _undefined}) =>
       _then(Variables$Mutation$UpdateEmail._({
@@ -102,7 +102,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateEmail<TRes>
 class Mutation$UpdateEmail {
   Mutation$UpdateEmail({
     required this.currentUserUpdate,
-    required this.$__typename,
+    this.$__typename = 'Mutation',
   });
 
   factory Mutation$UpdateEmail.fromJson(Map<String, dynamic> json) {
@@ -195,7 +195,7 @@ class _CopyWithImpl$Mutation$UpdateEmail<TRes>
 
   final TRes Function(Mutation$UpdateEmail) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? currentUserUpdate = _undefined,
@@ -315,6 +315,7 @@ class Options$Mutation$UpdateEmail
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdateEmail? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$UpdateEmail? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateEmail>? update,
@@ -326,7 +327,7 @@ class Options$Mutation$UpdateEmail
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -360,6 +361,7 @@ class WatchOptions$Mutation$UpdateEmail
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdateEmail? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -371,7 +373,7 @@ class WatchOptions$Mutation$UpdateEmail
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeMutationUpdateEmail,
           pollInterval: pollInterval,
@@ -407,9 +409,10 @@ Mutation$UpdateEmail$HookResult useMutation$UpdateEmail(
   final result = graphql_flutter
       .useMutation(options ?? WidgetOptions$Mutation$UpdateEmail());
   return Mutation$UpdateEmail$HookResult(
-    (variables, {optimisticResult}) => result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
       variables.toJson(),
-      optimisticResult: optimisticResult,
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
     result.result,
   );
@@ -427,6 +430,7 @@ class WidgetOptions$Mutation$UpdateEmail
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Mutation$UpdateEmail? typedOptimisticResult,
     graphql.Context? context,
     OnMutationCompleted$Mutation$UpdateEmail? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateEmail>? update,
@@ -437,7 +441,7 @@ class WidgetOptions$Mutation$UpdateEmail
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           onCompleted: onCompleted == null
               ? null
@@ -466,6 +470,7 @@ typedef RunMutation$Mutation$UpdateEmail
     = graphql.MultiSourceResult<Mutation$UpdateEmail> Function(
   Variables$Mutation$UpdateEmail, {
   Object? optimisticResult,
+  Mutation$UpdateEmail? typedOptimisticResult,
 });
 typedef Builder$Mutation$UpdateEmail = widgets.Widget Function(
   RunMutation$Mutation$UpdateEmail,
@@ -489,10 +494,12 @@ class Mutation$UpdateEmail$Widget
             (
               variables, {
               optimisticResult,
+              typedOptimisticResult,
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult: optimisticResult,
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),
@@ -503,7 +510,7 @@ class Mutation$UpdateEmail$currentUserUpdate {
   Mutation$UpdateEmail$currentUserUpdate({
     required this.id,
     required this.email,
-    required this.$__typename,
+    this.$__typename = 'UserObject',
   });
 
   factory Mutation$UpdateEmail$currentUserUpdate.fromJson(
@@ -612,7 +619,7 @@ class _CopyWithImpl$Mutation$UpdateEmail$currentUserUpdate<TRes>
 
   final TRes Function(Mutation$UpdateEmail$currentUserUpdate) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,

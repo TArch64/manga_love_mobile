@@ -135,7 +135,7 @@ class _CopyWithImpl$Input$CreateWorkInput<TRes>
 
   final TRes Function(Input$CreateWorkInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? categories = _undefined,
@@ -268,7 +268,7 @@ class _CopyWithImpl$Input$SignInInput<TRes>
 
   final TRes Function(Input$SignInInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? password = _undefined,
@@ -430,7 +430,7 @@ class _CopyWithImpl$Input$SignUpInput<TRes>
 
   final TRes Function(Input$SignUpInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? avatar = _undefined,
@@ -621,7 +621,7 @@ class _CopyWithImpl$Input$UpdateUserInput<TRes>
 
   final TRes Function(Input$UpdateUserInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? avatar = _undefined,
@@ -829,7 +829,7 @@ class _CopyWithImpl$Input$WorkFilterInput<TRes>
 
   final TRes Function(Input$WorkFilterInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? categories = _undefined,
@@ -972,7 +972,7 @@ class _CopyWithImpl$Input$WorkFilterSortInput<TRes>
 
   final TRes Function(Input$WorkFilterSortInput) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? direction = _undefined,
@@ -1044,4 +1044,4 @@ Enum$WorkSortField fromJson$Enum$WorkSortField(String value) {
   }
 }
 
-const possibleTypesMap = {};
+const possibleTypesMap = <String, Set<String>>{};

@@ -52,13 +52,12 @@ class EmailCard extends StatelessWidget {
 
   void _updateEmail(BuildContext context, String email, RunMutation$Mutation$UpdateEmail runMutation) async {
     var variables = Variables$Mutation$UpdateEmail(email: email);
-    var mutation = runMutation(variables, optimisticResult: {
-      'currentUserUpdate': {
-        '__typename': user.$__typename,
-        'id': user.id,
-        'email': email
-      }
-    });
+    var mutation = runMutation(variables, typedOptimisticResult: Mutation$UpdateEmail(
+      currentUserUpdate: Mutation$UpdateEmail$currentUserUpdate(
+        id: user.id,
+        email: email
+      )
+    ));
     var result = await mutation.networkResult!;
     if (result.hasException) _displayUpdateError(context, result);
   }

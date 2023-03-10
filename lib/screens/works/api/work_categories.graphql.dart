@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -6,7 +7,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 class Query$WorkCategories {
   Query$WorkCategories({
     required this.workCategories,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$WorkCategories.fromJson(Map<String, dynamic> json) {
@@ -114,7 +115,7 @@ class _CopyWithImpl$Query$WorkCategories<TRes>
 
   final TRes Function(Query$WorkCategories) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? workCategories = _undefined,
@@ -212,6 +213,10 @@ const documentNodeQueryWorkCategories = DocumentNode(definitions: [
 Query$WorkCategories _parserFn$Query$WorkCategories(
         Map<String, dynamic> data) =>
     Query$WorkCategories.fromJson(data);
+typedef OnQueryComplete$Query$WorkCategories = FutureOr<void> Function(
+  dynamic,
+  Query$WorkCategories?,
+);
 
 class Options$Query$WorkCategories
     extends graphql.QueryOptions<Query$WorkCategories> {
@@ -221,19 +226,40 @@ class Options$Query$WorkCategories
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Query$WorkCategories? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-  }) : super(
+    OnQueryComplete$Query$WorkCategories? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    _parserFn$Query$WorkCategories(data),
+                  ),
+          onError: onError,
           document: documentNodeQueryWorkCategories,
           parserFn: _parserFn$Query$WorkCategories,
         );
+
+  final OnQueryComplete$Query$WorkCategories? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$WorkCategories
@@ -244,6 +270,7 @@ class WatchOptions$Query$WorkCategories
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Query$WorkCategories? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -254,7 +281,7 @@ class WatchOptions$Query$WorkCategories
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeQueryWorkCategories,
           pollInterval: pollInterval,
@@ -329,7 +356,7 @@ class Query$WorkCategories$workCategories {
     required this.id,
     required this.textEn,
     required this.textUa,
-    required this.$__typename,
+    this.$__typename = 'WorkCategoryObject',
   });
 
   factory Query$WorkCategories$workCategories.fromJson(
@@ -452,7 +479,7 @@ class _CopyWithImpl$Query$WorkCategories$workCategories<TRes>
 
   final TRes Function(Query$WorkCategories$workCategories) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,

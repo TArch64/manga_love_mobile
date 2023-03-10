@@ -52,13 +52,12 @@ class UsernameCard extends StatelessWidget {
 
   void _updateUsername(BuildContext context, String username, RunMutation$Mutation$UpdateUsername runMutation) async {
     var variables = Variables$Mutation$UpdateUsername(username: username);
-    var mutation = runMutation(variables, optimisticResult: {
-      'currentUserUpdate': {
-        '__typename': user.$__typename,
-        'id': user.id,
-        'username': username
-      }
-    });
+    var mutation = runMutation(variables, typedOptimisticResult: Mutation$UpdateUsername(
+      currentUserUpdate: Mutation$UpdateUsername$currentUserUpdate(
+        id: user.id,
+        username: username
+      )
+    ));
     var result = await mutation.networkResult!;
     if (result.hasException) _displayUpdateError(context, result);
   }

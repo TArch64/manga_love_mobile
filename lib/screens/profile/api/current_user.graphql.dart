@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -6,7 +7,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 class Query$CurrentUser {
   Query$CurrentUser({
     required this.currentUser,
-    required this.$__typename,
+    this.$__typename = 'Query',
   });
 
   factory Query$CurrentUser.fromJson(Map<String, dynamic> json) {
@@ -99,7 +100,7 @@ class _CopyWithImpl$Query$CurrentUser<TRes>
 
   final TRes Function(Query$CurrentUser) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? currentUser = _undefined,
@@ -226,6 +227,10 @@ const documentNodeQueryCurrentUser = DocumentNode(definitions: [
 ]);
 Query$CurrentUser _parserFn$Query$CurrentUser(Map<String, dynamic> data) =>
     Query$CurrentUser.fromJson(data);
+typedef OnQueryComplete$Query$CurrentUser = FutureOr<void> Function(
+  dynamic,
+  Query$CurrentUser?,
+);
 
 class Options$Query$CurrentUser
     extends graphql.QueryOptions<Query$CurrentUser> {
@@ -235,19 +240,40 @@ class Options$Query$CurrentUser
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Query$CurrentUser? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-  }) : super(
+    OnQueryComplete$Query$CurrentUser? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           pollInterval: pollInterval,
           context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    _parserFn$Query$CurrentUser(data),
+                  ),
+          onError: onError,
           document: documentNodeQueryCurrentUser,
           parserFn: _parserFn$Query$CurrentUser,
         );
+
+  final OnQueryComplete$Query$CurrentUser? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$CurrentUser
@@ -258,6 +284,7 @@ class WatchOptions$Query$CurrentUser
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
+    Query$CurrentUser? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -268,7 +295,7 @@ class WatchOptions$Query$CurrentUser
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
           document: documentNodeQueryCurrentUser,
           pollInterval: pollInterval,
@@ -341,7 +368,7 @@ class Query$CurrentUser$currentUser {
     required this.username,
     required this.email,
     required this.avatar,
-    required this.$__typename,
+    this.$__typename = 'UserObject',
   });
 
   factory Query$CurrentUser$currentUser.fromJson(Map<String, dynamic> json) {
@@ -478,7 +505,7 @@ class _CopyWithImpl$Query$CurrentUser$currentUser<TRes>
 
   final TRes Function(Query$CurrentUser$currentUser) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
@@ -532,7 +559,7 @@ class Query$CurrentUser$currentUser$avatar {
     required this.originalHeight,
     required this.originalWidth,
     required this.url,
-    required this.$__typename,
+    this.$__typename = 'IllustrationObject',
   });
 
   factory Query$CurrentUser$currentUser$avatar.fromJson(
@@ -655,7 +682,7 @@ class _CopyWithImpl$Query$CurrentUser$currentUser$avatar<TRes>
 
   final TRes Function(Query$CurrentUser$currentUser$avatar) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? originalHeight = _undefined,
