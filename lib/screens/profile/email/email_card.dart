@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../../../common/graphql_utils.dart';
@@ -43,8 +44,8 @@ class EmailCard extends StatelessWidget {
         height: 300,
         child: EmailEditor(
           email: user.email,
-          onSubmit: (String email) => Navigator.pop(context, email),
-          onCancel: () => Navigator.pop(context, null),
+          onSubmit: (String email) => context.pop(email),
+          onCancel: () => context.pop(null),
         ),
       ),
     );

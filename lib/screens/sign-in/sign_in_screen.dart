@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -58,7 +59,7 @@ class SignInScreen extends StatelessWidget {
             ),
           ),
           TextButton(
-              onPressed: () => Navigator.pushReplacementNamed(context, '/sign-up'),
+              onPressed: () => context.go('/sign-up'),
               child: const Text('SIGN UP')
           )
         ],
@@ -100,6 +101,6 @@ class SignInScreen extends StatelessWidget {
 
   void _successSignIn(BuildContext context, AuthModel authModel, String token) async {
     await authModel.signIn(token);
-    await Navigator.pushReplacementNamed(context, '/works');
+    context.go('/works');
   }
 }

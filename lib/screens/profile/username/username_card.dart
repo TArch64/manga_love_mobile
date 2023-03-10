@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../../../common/graphql_utils.dart';
@@ -43,8 +44,8 @@ class UsernameCard extends StatelessWidget {
         height: 300,
         child: UsernameEditor(
           username: user.username,
-          onSubmit: (String username) => Navigator.pop(context, username),
-          onCancel: () => Navigator.pop(context, null),
+          onSubmit: (String username) => context.pop(username),
+          onCancel: () => context.pop(null),
         ),
       ),
     );

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:manga_love_mobile/screens/profile/password/password_card.dart';
 import 'package:provider/provider.dart';
 
 import '../../layouts/default/layout.dart';
 import '../../state/auth_model.dart';
+import 'password/password_card.dart';
 import 'api/current_user.graphql.dart';
 import 'profile_header.dart';
 import 'profile_section_title.dart';
@@ -68,7 +69,7 @@ class ProfileScreen extends StatelessWidget {
           onPressed: () async {
             await authModel.signOut();
             client.cache.store.reset();
-            await Navigator.pushReplacementNamed(context, '/works');
+            context.go('/works');
           },
           icon: const Icon(Icons.logout_outlined)
         );

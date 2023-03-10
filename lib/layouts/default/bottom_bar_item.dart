@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomBarItem extends StatelessWidget {
   const BottomBarItem({
@@ -28,10 +29,10 @@ class BottomBarItem extends StatelessWidget {
   }
 
   bool _isActive(BuildContext context) {
-    return ModalRoute.of(context)?.settings.name == route;
+    return GoRouter.of(context).location == route;
   }
 
   void _onPressed(BuildContext context) {
-    if (!_isActive(context)) Navigator.pushReplacementNamed(context, route);
+    if (!_isActive(context)) context.go(route);
   }
 }
