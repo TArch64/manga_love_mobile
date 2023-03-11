@@ -18,10 +18,12 @@ abstract class GraphQLUtils {
   }
 
   static List<String> _collectErrorCodes(QueryResult result) {
-    if (result.exception!.graphqlErrors.isEmpty) {
-      return ['unknown'];
+    var exception = result.exception!;
+    if (exception.linkException != null) {
+      return [exception.linkException.toString()];
     }
-    return result.exception!.graphqlErrors.map(_getErrorCode).toList();
+    var errors = exception.graphqlErrors;
+    return errors.isEmpty ? ['unknown'] : errors.map(_getErrorCode).toList();
   }
 
   static String _getErrorCode(GraphQLError error) {

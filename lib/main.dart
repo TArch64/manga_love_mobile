@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'app.dart';
-import 'env.dart';
+import 'env/index.dart';
 import 'state/auth_model.dart';
 
 void main() async {
