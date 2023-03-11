@@ -1,4 +1,4 @@
-import 'package:manga_love_mobile/graphql_scalars.dart';
+import 'package:manga_love_mobile/graphql_schema/scalars/multipart_file.dart';
 
 class Input$CreateWorkInput {
   factory Input$CreateWorkInput({

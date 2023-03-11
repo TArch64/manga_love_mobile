@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http_parser/http_parser.dart';
+import 'package:manga_love_mobile/graphql_schema/scalars/multipart_file.dart';
 import 'package:mime/mime.dart';
-
-import '../graphql_scalars.dart';
 
 abstract class GraphQLUtils {
   static List<String> getErrorCodes(QueryResult result) {

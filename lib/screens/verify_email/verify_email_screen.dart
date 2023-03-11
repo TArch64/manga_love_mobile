@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:manga_love_mobile/layouts/auth/layout.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen(this.queryParams, {super.key});
+
+  final Map<String, String> queryParams;
+
+  String get _verificationCode => queryParams['code'] ?? '';
 
   @override
   Widget build(BuildContext context) {
-    print(ModalRoute.of(context)!.settings.arguments);
-
-    return const AuthLayout(
-      body: Text('verify email')
+    return AuthLayout(
+      body: Text('verify email $_verificationCode')
     );
   }
 }

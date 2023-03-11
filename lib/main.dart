@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'app.dart';
+import 'app_router.dart';
 import 'env/index.dart';
 import 'state/auth_model.dart';
 
 void main() async {
   await initHiveForFlutter();
-  var authModel = await AuthModel.init();
+  final authModel = await AuthModel.init();
 
   runApp(App(
     graphQL: ValueNotifier(
@@ -20,5 +21,6 @@ void main() async {
       ),
     ),
     authModel: authModel,
+    appRouter: await AppRouter.init(),
   ));
 }

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-import 'package:manga_love_mobile/graphql_scalars.dart';
+import 'package:manga_love_mobile/graphql_schema/scalars/multipart_file.dart';
 
 class Variables$Mutation$UpdateAvatar {
   factory Variables$Mutation$UpdateAvatar({required MultipartFile avatar}) =>
